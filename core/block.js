@@ -31,6 +31,7 @@ goog.require('Blockly.Comment');
 goog.require('Blockly.Connection');
 goog.require('Blockly.Input');
 goog.require('Blockly.Mutator');
+goog.require('Blockly.ThumbnailMutator');
 goog.require('Blockly.Warning');
 goog.require('Blockly.Workspace');
 goog.require('Blockly.Xml');
@@ -1064,6 +1065,9 @@ Blockly.Block.prototype.interpolate_ = function(message, args, lastDummyAlign) {
             break;
           case 'field_variable':
             field = new Blockly.FieldVariable(element['variable']);
+            break;
+          case 'field_template':
+            field = new Blockly.FieldTemplate(element['template']);
             break;
           case 'field_dropdown':
             field = new Blockly.FieldDropdown(element['options']);

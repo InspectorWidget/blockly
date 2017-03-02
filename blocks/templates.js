@@ -23,151 +23,20 @@
 
 /**
  * @fileoverview Template blocks for Blockly (forked from template blocks).
- * @author gmail.com:christian.frisson (Christian Frisson)
- * @author fraser@google.com (Neil Fraser)
+ * @author gmail.com:christian.frisson (Christian Frisson), fraser@google.com (Neil Fraser)
  */
 'use strict';
 
 goog.provide('Blockly.Blocks.templates');
 
 goog.require('Blockly.Blocks');
-goog.require('Blockly.ThumbnailMutator');
+//goog.require('Blockly.ThumbnailMutator');
+//goog.require('Blockly.FieldTemplate');
 
 /**
  * Common HSV hue for all blocks in this category.
  */
 Blockly.Blocks.templates.HUE = 280;
-
-/* Overload */
-
-Blockly.Block.prototype.interpolate_ = function(message, args, lastDummyAlign) {
-  var tokens = Blockly.tokenizeInterpolation(message);
-  // Interpolate the arguments.  Build a list of elements.
-  var indexDup = [];
-  var indexCount = 0;
-  var elements = [];
-  for (var i = 0; i < tokens.length; i++) {
-    var token = tokens[i];
-    if (typeof token == 'number') {
-      goog.asserts.assert(token > 0 && token <= args.length,
-          'Message index "%s" out of range.', token);
-      goog.asserts.assert(!indexDup[token],
-          'Message index "%s" duplicated.', token);
-      indexDup[token] = true;
-      indexCount++;
-      elements.push(args[token - 1]);
-    } else {
-      token = token.trim();
-      if (token) {
-        elements.push(token);
-      }
-    }
-  }
-  goog.asserts.assert(indexCount == args.length,
-      'Message does not reference all %s arg(s).', args.length);
-  // Add last dummy input if needed.
-  if (elements.length && (typeof elements[elements.length - 1] == 'string' ||
-      elements[elements.length - 1]['type'].indexOf('field_') == 0)) {
-    var input = {type: 'input_dummy'};
-    if (lastDummyAlign) {
-      input['align'] = lastDummyAlign;
-    }
-    elements.push(input);
-  }
-  // Lookup of alignment constants.
-  var alignmentLookup = {
-    'LEFT': Blockly.ALIGN_LEFT,
-    'RIGHT': Blockly.ALIGN_RIGHT,
-    'CENTRE': Blockly.ALIGN_CENTRE
-  };
-  // Populate block with inputs and fields.
-  var fieldStack = [];
-  for (var i = 0; i < elements.length; i++) {
-    var element = elements[i];
-    if (typeof element == 'string') {
-      fieldStack.push([element, undefined]);
-    } else {
-      var field = null;
-      var input = null;
-      do {
-        var altRepeat = false;
-        switch (element['type']) {
-          case 'input_value':
-            input = this.appendValueInput(element['name']);
-            break;
-          case 'input_statement':
-            input = this.appendStatementInput(element['name']);
-            break;
-          case 'input_dummy':
-            input = this.appendDummyInput(element['name']);
-            break;
-          case 'field_label':
-            field = new Blockly.FieldLabel(element['text'], element['class']);
-            break;
-          case 'field_input':
-            field = new Blockly.FieldTextInput(element['text']);
-            if (typeof element['spellcheck'] == 'boolean') {
-              field.setSpellcheck(element['spellcheck']);
-            }
-            break;
-          case 'field_angle':
-            field = new Blockly.FieldAngle(element['angle']);
-            break;
-          case 'field_checkbox':
-            field = new Blockly.FieldCheckbox(
-                element['checked'] ? 'TRUE' : 'FALSE');
-            break;
-          case 'field_colour':
-            field = new Blockly.FieldColour(element['colour']);
-            break;
-          case 'field_variable':
-            field = new Blockly.FieldVariable(element['variable']);
-            break;
-          case 'field_template':
-            field = new Blockly.FieldTemplate(element['template']);
-            break;
-          case 'field_dropdown':
-            field = new Blockly.FieldDropdown(element['options']);
-            break;
-          case 'field_image':
-            field = new Blockly.FieldImage(element['src'],
-                element['width'], element['height'], element['alt']);
-            break;
-          case 'field_date':
-            if (Blockly.FieldDate) {
-              field = new Blockly.FieldDate(element['date']);
-              break;
-            }
-            // Fall through if FieldDate is not compiled in.
-          default:
-            // Unknown field.
-            if (element['alt']) {
-              element = element['alt'];
-              altRepeat = true;
-            }
-        }
-      } while (altRepeat);
-      if (field) {
-        fieldStack.push([field, element['name']]);
-      } else if (input) {
-        if (element['check']) {
-          input.setCheck(element['check']);
-        }
-        if (element['align']) {
-          input.setAlign(alignmentLookup[element['align']]);
-        }
-        for (var j = 0; j < fieldStack.length; j++) {
-          input.appendField(fieldStack[j][0], fieldStack[j][1]);
-        }
-        fieldStack.length = 0;
-      }
-    }
-  }
-};
-
-
-
-
 
 /**
  * Ensure that only a nonnegative float with 2 digits of precision may be entered.
@@ -207,7 +76,8 @@ Blockly.Blocks['template_get'] = {
         .appendField(new Blockly.FieldTemplate(
         'template'/*Blockly.Msg.TEMPLATES_DEFAULT_NAME*/), 'TEMPLATE');
     this.setOutput(true);
-    this.setTooltip(Blockly.Msg.TEMPLATES_GET_TOOLTIP);
+    //this.setTooltip(Blockly.Msg.TEMPLATES_GET_TOOLTIP);
+	this.setTooltip("Returns the value of this template.");
     this.contextMenuMsg_ = Blockly.Msg.TEMPLATES_GET_CREATE_SET;
   },
   /**

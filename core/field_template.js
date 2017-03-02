@@ -23,8 +23,7 @@
 
 /**
  * @fileoverview Template input field (forked from variable input field).
- * @author gmail.com:christian.frisson (Christian Frisson)
- * @author fraser@google.com (Neil Fraser)
+ * @author gmail.com:christian.frisson (Christian Frisson), fraser@google.com (Neil Fraser)
  */
 'use strict';
 
@@ -133,14 +132,14 @@ Blockly.FieldTemplate.prototype.setValue = function(newValue) {
   this.setText(newValue);
 };
 
-function findInspectorWidgetPlugin(arr) {
+Blockly.FieldTemplate.findInspectorWidgetPlugin = function(arr) {
     for(var i=0; i<arr.length; i++) {
         if (arr[i].namespace == "fr.ina.amalia.player.plugins.InspectorWidgetPlugin") return arr[i];
     }
     return null;
 };
 
-function drawingCallback(caller,msg) {
+Blockly.FieldTemplate.drawingCallback = function(caller,msg) {
     var block = caller.sourceBlock_;
         function done (id,err, result) {
             //console.log('from id',id);
@@ -260,8 +259,8 @@ Blockly.FieldTemplate.dropdownChange = function(text) {
 		}
 	  }
       var plugList = $( ".ajs" ).data('fr.ina.amalia.player').player.pluginManager.plugins;        
-      var plug = findInspectorWidgetPlugin(plugList);
-      plug.openAddShape(this,drawingCallback);
+      var plug = Blockly.FieldTemplate.findInspectorWidgetPlugin(plugList);
+      plug.openAddShape(this,Blockly.FieldTemplate.drawingCallback);
       return msg;
   }
   return undefined;

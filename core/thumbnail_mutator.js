@@ -25,8 +25,8 @@
  */
 'use strict';
 
-goog.require('Blockly.Mutator');
 goog.provide('Blockly.ThumbnailMutator');
+goog.require('Blockly.Mutator');
 
 /**
  * Class for a mutator dialog.

@@ -28,13 +28,13 @@
  */
 'use strict';
 
-//goog.provide('Blockly.Templates');
+goog.provide('Blockly.Templates');
 
 // TODO(scr): Fix circular dependencies
 // goog.require('Blockly.Block');
 
-//goog.require('Blockly.Workspace');
-//goog.require('goog.string');
+goog.require('Blockly.Workspace');
+goog.require('goog.string');
 
 
 /**

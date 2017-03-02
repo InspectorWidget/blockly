@@ -1,6 +1,6 @@
 'use strict';
 goog.provide('Blockly.JavaScript.InspectorWidget.Accessibility');
-goog.require('Blockly.InspectorWidget.JavaScript');
+//goog.require('Blockly.InspectorWidget.JavaScript');
 Blockly.JavaScript['accessibility_actions'] = function (block) {
     var argument0 = Blockly.JavaScript.valueToCode(block, 'TEST_VALUE'
         , /*until ? Blockly.JavaScript.ORDER_LOGICAL_NOT :*/

@@ -1,6 +1,6 @@
 'use strict';
 goog.provide('Blockly.JavaScript.InspectorWidget.InputEvents');
-goog.require('Blockly.InspectorWidget.JavaScript');
+//goog.require('Blockly.InspectorWidget.JavaScript');
 Blockly.JavaScript['input_events_actions'] = function (block) {
     var argument0 = Blockly.JavaScript.valueToCode(block, 'TEST_VALUE', /*until ? Blockly.JavaScript.ORDER_LOGICAL_NOT :*/ Blockly.JavaScript.ORDER_NONE) || 'false';
     var argument1; //= block.getFieldValue('TEMPLATE_NAME');

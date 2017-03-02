@@ -1,6 +1,6 @@
 'use strict';
 goog.provide('Blockly.JavaScript.InspectorWidget.ComputerVision');
-goog.require('Blockly.InspectorWidget.JavaScript');
+//goog.require('Blockly.InspectorWidget.JavaScript');
 Blockly.JavaScript['match_template'] = function (block) {
     // Template setter.
     var argument0 = Blockly.JavaScript.valueToCode(block, 'TEMPLATE', Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
