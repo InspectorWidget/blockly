@@ -33,6 +33,7 @@
 #   javascript_compressed.js: The compressed Javascript generator.
 #   python_compressed.js: The compressed Python generator.
 #   dart_compressed.js: The compressed Dart generator.
+#   lua_compressed.js: The compressed Lua generator.
 #   msg/js/<LANG>.js for every language <LANG> defined in msg/js/<LANG>.json.
 
 import sys
@@ -84,7 +85,7 @@ var isNodeJS = !!(typeof module !== 'undefined' && module.exports &&
 
 if (isNodeJS) {
   var window = {};
-  require('../closure-library/closure/goog/bootstrap/nodejs');
+  require('closure-library');
 }
 
 window.BLOCKLY_DIR = (function() {
@@ -106,13 +107,13 @@ window.BLOCKLY_DIR = (function() {
 window.BLOCKLY_BOOT = function() {
   var dir = '';
   if (isNodeJS) {
-    require('../closure-library/closure/goog/bootstrap/nodejs');
+    require('closure-library');
     dir = 'blockly';
   } else {
     // Execute after Closure has loaded.
     if (!window.goog) {
       alert('Error: Closure not found.  Read this:\\n' +
-            'developers.google.com/blockly/hacking/closure');
+            'developers.google.com/blockly/guides/modify/web/closure');
     }
     dir = window.BLOCKLY_DIR.match(/[^\\/]+$/)[0];
   }
@@ -146,7 +147,7 @@ delete this.BLOCKLY_BOOT;
 };
 
 if (isNodeJS) {
-  window.BLOCKLY_BOOT()
+  window.BLOCKLY_BOOT();
   module.exports = Blockly;
 } else {
   // Delete any existing Closure (e.g. Soy's nogoog_shim).
@@ -178,6 +179,7 @@ class Gen_compressed(threading.Thread):
     self.gen_generator("python")
     self.gen_generator("php")
     self.gen_generator("dart")
+    self.gen_generator("lua")
 
   def gen_core(self):
     target_filename = "blockly_compressed.js"
@@ -409,12 +411,13 @@ class Gen_langfiles(threading.Thread):
           os.path.join("i18n", "create_messages.py"),
           "--source_lang_file", os.path.join("msg", "json", "en.json"),
           "--source_synonym_file", os.path.join("msg", "json", "synonyms.json"),
+          "--source_constants_file", os.path.join("msg", "json", "constants.json"),
           "--key_file", os.path.join("msg", "json", "keys.json"),
           "--output_dir", os.path.join("msg", "js"),
           "--quiet"]
       json_files = glob.glob(os.path.join("msg", "json", "*.json"))
       json_files = [file for file in json_files if not
-                    (file.endswith(("keys.json", "synonyms.json", "qqq.json")))]
+                    (file.endswith(("keys.json", "synonyms.json", "qqq.json", "constants.json")))]
       cmd.extend(json_files)
       subprocess.check_call(cmd)
     except (subprocess.CalledProcessError, OSError) as e:
@@ -450,7 +453,7 @@ if __name__ == "__main__":
            "Please rename this directory.")
     else:
       print("""Error: Closure not found.  Read this:
-https://developers.google.com/blockly/hacking/closure""")
+developers.google.com/blockly/guides/modify/web/closure""")
     sys.exit(1)
 
   search_paths = calcdeps.ExpandDirectories(
