@@ -30,9 +30,8 @@
 
 goog.provide('Blockly.Templates');
 
-// TODO(scr): Fix circular dependencies
-// goog.require('Blockly.Block');
-
+goog.require('Blockly.Blocks');
+goog.require('Blockly.constants');
 goog.require('Blockly.Workspace');
 goog.require('goog.string');
 
@@ -47,9 +46,9 @@ Blockly.Templates.NAME_TYPE = 'TEMPLATE';
  * @param {!Blockly.Block|!Blockly.Workspace} root Root block or workspace.
  * @return {!Array.<string>} Array of template names.
  */
-Blockly.Templates.allTemplates = function(root) {
+Blockly.Templates.allUsedTemplates = function(root) {
   var blocks;
-  if (root.getDescendants) {
+  if (root instanceof Blockly.Block) {
     // Root is Block.
     blocks = root.getDescendants();
   } else if (root.getAllBlocks) {
@@ -61,13 +60,13 @@ Blockly.Templates.allTemplates = function(root) {
   var templateHash = Object.create(null);
   // Iterate through every block and add each template to the hash.
   for (var x = 0; x < blocks.length; x++) {
-    if (blocks[x].getTemplates) {
-      var blockTemplates = blocks[x].getTemplates();
+    var blockTemplates = blocks[x].getTemplates();
+    if (blockTemplates) {
       for (var y = 0; y < blockTemplates.length; y++) {
-        var varName = blockTemplates[y];
-        // Template name may be null if the block is only half-built.
-        if (varName) {
-          templateHash[varName.toLowerCase()] = varName;
+        var templateName = blockTemplates[y];
+        // Variable name may be null if the block is only half-built.
+        if (templateName) {
+          templateHash[templateName.toLowerCase()] = templateName;
         }
       }
     }
@@ -86,14 +85,14 @@ Blockly.Templates.allTemplates = function(root) {
  * @param {string} newName New template name.
  * @param {!Blockly.Workspace} workspace Workspace rename templates in.
  */
-Blockly.Templates.renameTemplate = function(oldName, newName, workspace) {
-  var blocks = workspace.getAllBlocks();
-  // Iterate through every block.
-  for (var i = 0; i < blocks.length; i++) {
-    if (blocks[i].renameTemplate) {
-      blocks[i].renameTemplate(oldName, newName);
-    }
+Blockly.Templates.allTemplates = function(root) {
+  if (root instanceof Blockly.Block) {
+    // Root is Block.
+    console.warn('Deprecated call to Blockly.Templates.allTemplates ' +
+                 'with a block instead of a workspace.  You may want ' +
+                 'Blockly.Templates.allUsedTemplates');
   }
+  return root.templateList;
 };
 
 /**
@@ -102,43 +101,57 @@ Blockly.Templates.renameTemplate = function(oldName, newName, workspace) {
  * @return {!Array.<!Element>} Array of XML block elements.
  */
 Blockly.Templates.flyoutCategory = function(workspace) {
-  var templateList = Blockly.Templates.allTemplates(workspace);
+  var templateList = workspace.templateList;
   templateList.sort(goog.string.caseInsensitiveCompare);
-  // In addition to the user's templates, we also want to display the default
-  // template name at the top.  We also don't want this duplicated if the
-  // user has created a template of the same name.
-  goog.array.remove(templateList, Blockly.Msg.TEMPLATES_DEFAULT_NAME);
-  templateList.unshift(Blockly.Msg.TEMPLATES_DEFAULT_NAME);
 
   var xmlList = [];
-  for (var i = 0; i < templateList.length; i++) {
-    if (Blockly.Blocks['template_set']) {
-      // <block type="template_set" gap="8">
-      //   <field name="TEMPLATE">item</field>
-      // </block>
-      var block = goog.dom.createDom('block');
-      block.setAttribute('type', 'template_set');
-      if (Blockly.Blocks['template_get']) {
-        block.setAttribute('gap', 8);
-      }
-      var field = goog.dom.createDom('field', null, templateList[i]);
-      field.setAttribute('name', 'TEMPLATE');
-      block.appendChild(field);
+  var button = goog.dom.createDom('button');
+  button.setAttribute('text', Blockly.Msg.NEW_TEMPLATE);
+  button.setAttribute('callbackKey', 'CREATE_TEMPLATE');
+
+  workspace.registerButtonCallback('CREATE_TEMPLATE', function(button) {
+    Blockly.Templates.createTemplate(button.getTargetWorkspace());
+  });
+
+  xmlList.push(button);
+
+  if (templateList.length > 0) {
+    if (Blockly.Blocks['templates_set']) {
+      var gap = Blockly.Blocks['math_change'] ? 8 : 24;
+      var blockText = '<xml>' +
+            '<block type="templates_set" gap="' + gap + '">' +
+            '<field name="TEMPLATE">' + templateList[0] + '</field>' +
+            '</block>' +
+            '</xml>';
+      var block = Blockly.Xml.textToDom(blockText).firstChild;
       xmlList.push(block);
     }
-    if (Blockly.Blocks['template_get']) {
-      // <block type="template_get" gap="24">
-      //   <field name="TEMPLATE">item</field>
-      // </block>
-      var block = goog.dom.createDom('block');
-      block.setAttribute('type', 'template_get');
-      if (Blockly.Blocks['template_set']) {
-        block.setAttribute('gap', 24);
-      }
-      var field = goog.dom.createDom('field', null, templateList[i]);
-      field.setAttribute('name', 'TEMPLATE');
-      block.appendChild(field);
+    if (Blockly.Blocks['math_change']) {
+      var gap = Blockly.Blocks['templates_get'] ? 20 : 8;
+      var blockText = '<xml>' +
+          '<block type="math_change" gap="' + gap + '">' +
+          '<field name="TEMPLATE">' + templateList[0] + '</field>' +
+          '<value name="DELTA">' +
+          '<shadow type="math_number">' +
+          '<field name="NUM">1</field>' +
+          '</shadow>' +
+          '</value>' +
+          '</block>' +
+          '</xml>';
+      var block = Blockly.Xml.textToDom(blockText).firstChild;
       xmlList.push(block);
+    }
+
+    for (var i = 0; i < templateList.length; i++) {
+      if (Blockly.Blocks['templates_get']) {
+        var blockText = '<xml>' +
+            '<block type="templates_get" gap="8">' +
+            '<field name="TEMPLATE">' + templateList[i] + '</field>' +
+            '</block>' +
+            '</xml>';
+        var block = Blockly.Xml.textToDom(blockText).firstChild;
+        xmlList.push(block);
+      }
     }
   }
   return xmlList;
@@ -153,7 +166,7 @@ Blockly.Templates.flyoutCategory = function(workspace) {
 * @return {string} New template name.
 */
 Blockly.Templates.generateUniqueName = function(workspace) {
-  var templateList = Blockly.Templates.allTemplates(workspace);
+  var templateList = workspace.templateList;
   var newName = '';
   if (templateList.length) {
     var nameSuffix = 1;
@@ -191,4 +204,63 @@ Blockly.Templates.generateUniqueName = function(workspace) {
     newName = 'i';
   }
   return newName;
+};
+
+/**
+ * Create a new template on the given workspace.
+ * @param {!Blockly.Workspace} workspace The workspace on which to create the
+ *     template.
+ * @param {function(?string=)=} opt_callback A callback. It will
+ *     be passed an acceptable new template name, or null if change is to be
+ *     aborted (cancel button), or undefined if an existing template was chosen.
+ */
+Blockly.Templates.createTemplate = function(workspace, opt_callback) {
+  var promptAndCheckWithAlert = function(defaultName) {
+    Blockly.Templates.promptName(Blockly.Msg.NEW_TEMPLATE_TITLE, defaultName,
+      function(text) {
+        if (text) {
+          if (workspace.templateIndexOf(text) != -1) {
+            Blockly.alert(Blockly.Msg.TEMPLATE_ALREADY_EXISTS.replace('%1',
+                text.toLowerCase()),
+                function() {
+                  promptAndCheckWithAlert(text);  // Recurse
+                });
+          } else {
+            workspace.createTemplate(text);
+            if (opt_callback) {
+              opt_callback(text);
+            }
+          }
+        } else {
+          // User canceled prompt without a value.
+          if (opt_callback) {
+            opt_callback(null);
+          }
+        }
+      });
+  };
+  promptAndCheckWithAlert('');
+};
+
+/**
+ * Prompt the user for a new template name.
+ * @param {string} promptText The string of the prompt.
+ * @param {string} defaultText The default value to show in the prompt's field.
+ * @param {function(?string)} callback A callback. It will return the new
+ *     template name, or null if the user picked something illegal.
+ */
+Blockly.Templates.promptName = function(promptText, defaultText, callback) {
+  Blockly.prompt(promptText, defaultText, function(newTemplate) {
+    // Merge runs of whitespace.  Strip leading and trailing whitespace.
+    // Beyond this, all names are legal.
+    if (newTemplate) {
+      newTemplate = newTemplate.replace(/[\s\xa0]+/g, ' ').replace(/^ | $/g, '');
+      if (newTemplate == Blockly.Msg.RENAME_TEMPLATE ||
+          newTemplate == Blockly.Msg.NEW_TEMPLATE) {
+        // Ok, not ALL names are legal...
+        newTemplate = null;
+      }
+    }
+    callback(newTemplate);
+  });
 };

@@ -69,6 +69,7 @@ Blockly.Msg.PROCEDURES_HUE = '290';
 /// For more context, see
 /// [[Translating:Blockly#infrequent_message_types]].\n{{Identical|Item}}
 Blockly.Msg.VARIABLES_DEFAULT_NAME = 'item';
+Blockly.Msg.TEMPLATES_DEFAULT_NAME = 'template';
 /// button text - Button that sets a calendar to today's date.\n{{Identical|Today}}
 Blockly.Msg.TODAY = 'Today';
 
@@ -133,6 +134,28 @@ Blockly.Msg.DELETE_VARIABLE_CONFIRMATION = 'Delete %1 uses of the "%2" variable?
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = 'Can\'t delete the variable "%1" because it is part of the definition of the procedure "%2"';
 /// dropdown choice - Delete the currently selected variable.
 Blockly.Msg.DELETE_VARIABLE = 'Delete the "%1" variable';
+
+// Template renaming.
+/// dropdown choice - When the user clicks on a template block, this is one of the dropdown menu choices.  It is used to rename the current template.
+Blockly.Msg.RENAME_TEMPLATE = 'Rename template...';
+/// prompt - Prompts the user to enter the new name for the selected template.
+Blockly.Msg.RENAME_TEMPLATE_TITLE = 'Rename all "%1" templates to:';
+
+// Template creation
+/// button text - Text on the button used to launch the template creation dialogue.
+Blockly.Msg.NEW_TEMPLATE = 'Create template...';
+/// prompt - Prompts the user to enter the name for a new template.
+Blockly.Msg.NEW_TEMPLATE_TITLE = 'New template name:';
+/// alert - Tells the user that the name they entered is already in use.
+Blockly.Msg.TEMPLATE_ALREADY_EXISTS = 'A template named "%1" already exists.'
+
+// Template deletion.
+/// confirm -  Ask the user to confirm their deletion of multiple uses of a template.
+Blockly.Msg.DELETE_TEMPLATE_CONFIRMATION = 'Delete %1 uses of the "%2" template?';
+/// alert - Tell the user that they can't delete a template because it's part of the definition of a procedure.
+Blockly.Msg.CANNOT_DELETE_TEMPLATE_PROCEDURE = 'Can\'t delete the template "%1" because it is part of the definition of the procedure "%2"';
+/// dropdown choice - Delete the currently selected template.
+Blockly.Msg.DELETE_TEMPLATE = 'Delete the "%1" template';
 
 // Colour Blocks.
 /// url - Information about colour.
@@ -1070,6 +1093,25 @@ Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input
 /// context menu - Selecting this creates a block to get (change) the value of
 /// this variable.\n\nParameters:\n* %1 - the name of the variable.
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
+
+// Templates Blocks.
+/// url - Information about ''templates'' in computer programming.
+Blockly.Msg.TEMPLATES_GET_HELPURL = 'https://github.com/InspectorWidget/blockly/';
+/// tooltip - This gets the value of the named template without modifying it.
+Blockly.Msg.TEMPLATES_GET_TOOLTIP = 'Returns the value of this template.';
+/// context menu - Selecting this creates a block to set (change) the value of this template.
+/// \n\nParameters:\n* %1 - the name of the template.
+Blockly.Msg.TEMPLATES_GET_CREATE_SET = 'Create "set %1"';
+
+/// url - Information about ''templates'' in computer programming.
+Blockly.Msg.TEMPLATES_SET_HELPURL = 'https://github.com/InspectorWidget/blockly/';
+/// block text - Change the value of a mathematical template: '''set [the value of] x to 7'''.\n\nParameters:\n* %1 - the name of the template.\n* %2 - the value to be assigned.
+Blockly.Msg.TEMPLATES_SET = 'set %1 to %2';
+/// tooltip - This initializes or changes the value of the named template.
+Blockly.Msg.TEMPLATES_SET_TOOLTIP = 'Sets this template to be equal to the input.';
+/// context menu - Selecting this creates a block to get (change) the value of
+/// this template.\n\nParameters:\n* %1 - the name of the template.
+Blockly.Msg.TEMPLATES_SET_CREATE_GET = 'Create "get %1"';
 
 // Procedures Blocks.
 /// url - Information about defining [https://en.wikipedia.org/wiki/Subroutine functions] that do not have return values.

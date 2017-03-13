@@ -32,20 +32,8 @@ goog.provide('Blockly.FieldTemplate');
 goog.require('Blockly.FieldDropdown');
 goog.require('Blockly.Msg');
 goog.require('Blockly.Templates');
+goog.require('goog.asserts');
 goog.require('goog.string');
-
-Blockly.Msg.NEW_TEMPLATE = "New template...";
-Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";
-Blockly.Msg.RENAME_TEMPLATE = "Rename template...";
-Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";
-Blockly.Msg.TEMPLATES_DEFAULT_NAME = "item";
-Blockly.Msg.TEMPLATES_GET_CREATE_SET = "Create 'set %1'";
-Blockly.Msg.TEMPLATES_GET_HELPURL = "https://github.com/google/blockly/wiki/Templates#get";
-Blockly.Msg.TEMPLATES_GET_TOOLTIP = "Returns the value of this template.";
-Blockly.Msg.TEMPLATES_SET = "set %1 to %2";
-Blockly.Msg.TEMPLATES_SET_CREATE_GET = "Create 'get %1'";
-Blockly.Msg.TEMPLATES_SET_HELPURL = "https://github.com/google/blockly/wiki/Templates#set";
-Blockly.Msg.TEMPLATES_SET_TOOLTIP = "Sets this template to be equal to the input.";
 
 /**
  * Class for a template's dropdown field.
@@ -64,55 +52,64 @@ Blockly.FieldTemplate = function(varname, opt_validator) {
 goog.inherits(Blockly.FieldTemplate, Blockly.FieldDropdown);
 
 /**
- * Sets a new change handler for angle field.
- * @param {Function} handler New change handler, or null.
+ * The menu item index for the rename template option.
+ * @type {number}
+ * @private
  */
-Blockly.FieldTemplate.prototype.setValidator = function(handler) {
-  var wrappedHandler;
-  if (handler) {
-    // Wrap the user's change handler together with the template rename handler.
-    wrappedHandler = function(value) {
-      var v1 = handler.call(this, value);
-      if (v1 === null) {
-        var v2 = v1;
-      } else {
-        if (v1 === undefined) {
-          v1 = value;
-        }
-        var v2 = Blockly.FieldTemplate.dropdownChange.call(this, v1);
-        if (v2 === undefined) {
-          v2 = v1;
-        }
-      }
-      return v2 === value ? undefined : v2;
-    };
-  } else {
-    wrappedHandler = Blockly.FieldTemplate.dropdownChange;
-  }
-  Blockly.FieldTemplate.superClass_.setValidator.call(this, wrappedHandler);
-};
+Blockly.FieldTemplate.prototype.renameTemplateItemIndex_ = -1;
+
+/**
+ * The menu item index for the delete variable option.
+ * @type {number}
+ * @private
+ */
+Blockly.FieldTemplate.prototype.deleteTemplateItemIndex_ = -1;
+
+/**
+ * The menu item index for the new variable option.
+ * @type {number}
+ * @private
+ */
+Blockly.FieldTemplate.prototype.newTemplateItemIndex_ = -1;
 
 /**
  * Install this dropdown on a block.
- * @param {!Blockly.Block} block The block containing this text.
  */
 Blockly.FieldTemplate.prototype.init = function(block) {
-  if (this.sourceBlock_) {
+  if (this.fieldGroup_) {
     // Dropdown has already been initialized once.
     return;
   }
-  Blockly.FieldTemplate.superClass_.init.call(this, block);
+  Blockly.FieldTemplate.superClass_.init.call(this);
   if (!this.getValue()) {
     // Templates without names get uniquely named for this workspace.
     var workspace =
-        block.isInFlyout ? block.workspace.targetWorkspace : block.workspace;
+        this.sourceBlock_.isInFlyout ?
+            this.sourceBlock_.workspace.targetWorkspace :
+            this.sourceBlock_.workspace;
     this.setValue(Blockly.Templates.generateUniqueName(workspace));
+  }
+  // If the selected variable doesn't exist yet, create it.
+  // For instance, some blocks in the toolbox have variable dropdowns filled
+  // in by default.
+  if (!this.sourceBlock_.isInFlyout) {
+    this.sourceBlock_.workspace.createTemplate(this.getValue());
   }
 };
 
 /**
- * Get the template's name (use a templateDB to convert into a real name).
- * Unline a regular dropdown, templates are literal and have no neutral value.
+ * Attach this field to a block.
+ * @param {!Blockly.Block} block The block containing this field.
+ */
+Blockly.FieldTemplate.prototype.setSourceBlock = function(block) {
+  goog.asserts.assert(!block.isShadow(),
+      'Template fields are not allowed to exist on shadow blocks.');
+  Blockly.FieldTemplate.superClass_.setSourceBlock.call(this, block);
+};
+
+/**
+ * Get the template name (use a templateDB to convert into a real name).
+ * Unline a regular dropdown, variables are literal and have no neutral value.
  * @return {string} Current text.
  */
 Blockly.FieldTemplate.prototype.getValue = function() {
@@ -132,49 +129,11 @@ Blockly.FieldTemplate.prototype.setValue = function(newValue) {
   this.setText(newValue);
 };
 
-Blockly.FieldTemplate.findInspectorWidgetPlugin = function(arr) {
-    for(var i=0; i<arr.length; i++) {
-        if (arr[i].namespace == "fr.ina.amalia.player.plugins.InspectorWidgetPlugin") return arr[i];
-    }
-    return null;
-};
-
-Blockly.FieldTemplate.drawingCallback = function(caller,msg) {
-    var block = caller.sourceBlock_;
-        function done (id,err, result) {
-            //console.log('from id',id);
-            if (err) {
-                console.log('Error',err);
-                return;
-            }
-            else{
-                var id = block.getFieldValue('VIDEO');
-                var template = block.getFieldValue('TEMPLATE');
-                var url = '/data/' + id + '/' + template + '.png';
-                block.thumbnailMutator_.changeSrc(url);
-                return;
-            }
-        }
-    
-    if( msg !== null && 'rx' in msg){
-
-        // Update block values
-        var recordingFullPath = msg.src;
-        var recordingId = recordingFullPath.split('\\').pop().split('/').pop().split('.').reverse().pop();
-        block.setFieldValue(msg.x,'X');
-        block.setFieldValue(msg.y,'Y');
-        block.setFieldValue(msg.rx,'W');
-        block.setFieldValue(msg.ry,'H');
-        block.setFieldValue(recordingId,'VIDEO');
-        block.setFieldValue(msg.time,'TIME');
-        
-        // Submit block code to InspectorWidget to get the template image
-        var workspace = Blockly.getMainWorkspace();    
-        Blockly.JavaScript.init(workspace);
-        var code = Blockly.JavaScript.blockToCode(block);
-        var socket = io();
-        socket.emit('run',recordingId,code,done);
-    }
+/**
+ * Callback to be overloaded
+ * Triggered once a new template has been created with Blockly.
+ */
+Blockly.FieldTemplate.prototype.defineTemplateCallback = function(caller,name) {
 }
 
 /**
@@ -185,8 +144,9 @@ Blockly.FieldTemplate.drawingCallback = function(caller,msg) {
  */
 Blockly.FieldTemplate.dropdownCreate = function() {
   if (this.sourceBlock_ && this.sourceBlock_.workspace) {
-    var templateList =
-        Blockly.Templates.allTemplates(this.sourceBlock_.workspace);
+    // Get a copy of the list, so that adding rename and new variable options
+    // doesn't modify the workspace's list.
+    var templateList = this.sourceBlock_.workspace.templateList.slice(0);
   } else {
     var templateList = [];
   }
@@ -196,72 +156,77 @@ Blockly.FieldTemplate.dropdownCreate = function() {
     templateList.push(name);
   }
   templateList.sort(goog.string.caseInsensitiveCompare);
+
+  this.renameTemplateItemIndex_ = templateList.length;
   templateList.push(Blockly.Msg.RENAME_TEMPLATE);
+
+  this.deleteTemplateItemIndex_ = templateList.length;
+  templateList.push(Blockly.Msg.DELETE_TEMPLATE.replace('%1', name));
+
+  this.newTemplateItemIndex_ = templateList.length;
   templateList.push(Blockly.Msg.NEW_TEMPLATE);
-  if(this.sourceBlock_ && this.sourceBlock_.type === 'template_set'){
-    templateList.push(Blockly.Msg.REDEFINE_TEMPLATE);
-  }
   // Templates are not language-specific, use the name as both the user-facing
   // text and the internal representation.
   var options = [];
-  for (var x = 0; x < templateList.length; x++) {
-    options[x] = [templateList[x], templateList[x]];
+  for (var i = 0; i < templateList.length; i++) {
+    options[i] = [templateList[i], templateList[i]];
   }
   return options;
 };
 
 /**
- * Event handler for a change in template name.
- * Special case the 'New template...' and 'Rename template...' options.
- * In both of these special cases, prompt the user for a new name.
- * @param {string} text The selected dropdown menu option.
- * @return {null|undefined|string} An acceptable new template name, or null if
- *     change is to be either aborted (cancel button) or has been already
- *     handled (rename), or undefined if an existing template was chosen.
- * @this {!Blockly.FieldTemplate}
+ * Handle the selection of an item in the variable dropdown menu.
+ * Special case the 'Rename variable...' and 'Delete variable...' options.
+ * In the rename case, prompt the user for a new name.
+ * @param {!goog.ui.Menu} menu The Menu component clicked.
+ * @param {!goog.ui.MenuItem} menuItem The MenuItem selected within menu.
  */
-Blockly.FieldTemplate.dropdownChange = function(text) {
-  function promptName(promptText, defaultText) {
-    Blockly.hideChaff();
-    var newVar = window.prompt(promptText, defaultText);
-    // Merge runs of whitespace.  Strip leading and trailing whitespace.
-    // Beyond this, all names are legal.
-    if (newVar) {
-      newVar = newVar.replace(/[\s\xa0]+/g, ' ').replace(/^ | $/g, '');
-      if (newVar == Blockly.Msg.RENAME_TEMPLATE ||
-          newVar == Blockly.Msg.NEW_TEMPLATE ||
-          newVar == Blockly.Msg.REDEFINE_TEMPLATE
-          ) {
-        // Ok, not ALL names are legal...
-        newVar = null;
-      }
+Blockly.FieldTemplate.prototype.onItemSelected = function(menu, menuItem) {
+  var itemText = menuItem.getValue();
+  if (this.sourceBlock_) {
+    var workspace = this.sourceBlock_.workspace;
+    if (this.renameTemplateItemIndex_ >= 0 &&
+        menu.getChildAt(this.renameTemplateItemIndex_) === menuItem) {
+      // Rename variable.
+      var oldName = this.getText();
+      Blockly.hideChaff();
+      Blockly.Templates.promptName(
+          Blockly.Msg.RENAME_TEMPLATE_TITLE.replace('%1', oldName), oldName,
+          function(newName) {
+            if (newName) {
+              workspace.renameTemplate(oldName, newName);
+            }
+          });
+      return;
+    } else if (this.newTemplateItemIndex_ >= 0 &&
+        menu.getChildAt(this.newTemplateItemIndex_) === menuItem) {
+          var self = this;
+          Blockly.Templates.promptName(
+              Blockly.Msg.NEW_TEMPLATE_TITLE, '',
+              function(newName) {
+                if (newName) {
+                  workspace.createTemplate(newName)
+                  var newTemplateIndex = workspace.templateIndexOf(newName);
+                  if(newTemplateIndex != -1){
+                    self.setValue(newName);
+                    self.defineTemplateCallback(self,newName);
+                  }
+                }
+                return;
+              });
+              return;
+    } else if (this.deleteTemplateItemIndex_ >= 0 &&
+        menu.getChildAt(this.deleteTemplateItemIndex_) === menuItem) {
+      // Delete variable.
+      workspace.deleteTemplate(this.getText());
+      return;
     }
-    return newVar;
+
+
+    // Call any validation function, and allow it to override.
+    itemText = this.callValidator(itemText);
   }
-  var workspace = this.sourceBlock_.workspace;
-  if (text == Blockly.Msg.RENAME_TEMPLATE) {
-    var oldVar = this.getText();
-    text = promptName(Blockly.Msg.RENAME_TEMPLATE_TITLE.replace('%1', oldVar),
-                      oldVar);
-    if (text) {
-      Blockly.Templates.renameTemplate(oldVar, text, workspace);
-    }
-    return null;
-  } else if (text == Blockly.Msg.NEW_TEMPLATE || (Blockly.Msg.REDEFINE_TEMPLATE && this.sourceBlock_.type === 'template_set')) {
-	  var msg = this.getText();
-	  if (text == Blockly.Msg.NEW_TEMPLATE){
-        var newtext = promptName(Blockly.Msg.NEW_TEMPLATE_TITLE, '');
-    	// Since templates are case-insensitive, ensure that if the new template
-    	// matches with an existing template, the new case prevails throughout.
-    	if (newtext) {
-      	  	Blockly.Templates.renameTemplate('', newtext, workspace);
-			msg = newtext;
-		}
-	  }
-      var plugList = $( ".ajs" ).data('fr.ina.amalia.player').player.pluginManager.plugins;        
-      var plug = Blockly.FieldTemplate.findInspectorWidgetPlugin(plugList);
-      plug.openAddShape(this,Blockly.FieldTemplate.drawingCallback);
-      return msg;
+  if (itemText !== null) {
+    this.setValue(itemText);
   }
-  return undefined;
 };

@@ -20,7 +20,7 @@
 
 /**
  * @fileoverview Object representing a thumbnail mutator dialog (inherits from Mutator).
- * A thumbnail mutator allows the user to visualise image thumbnails on blocks. 
+ * A thumbnail mutator allows the user to visualise image thumbnails on blocks.
  * @author gmail.com:christian.frisson (Christian Frisson)
  */
 'use strict';
@@ -37,6 +37,7 @@ goog.require('Blockly.Mutator');
 Blockly.ThumbnailMutator = function(src) {
   Blockly.ThumbnailMutator.superClass_.constructor.call(this, null);
     this.src_ = src;
+    this.quarkNames_ = src;
 };
 goog.inherits(Blockly.ThumbnailMutator, Blockly.Mutator);
 
@@ -47,7 +48,7 @@ goog.inherits(Blockly.ThumbnailMutator, Blockly.Mutator);
  * @private
  */
 Blockly.ThumbnailMutator.prototype.drawIcon_ = function(group) {
-    this.iconElement_ = Blockly.createSvgElement('image',
+    this.iconElement_ = Blockly.utils.createSvgElement('image',
       {'height': 20 + 'px',
        'width': 20 + 'px'},group);
     this.iconElement_.setAttributeNS('http://www.w3.org/1999/xlink',
@@ -81,10 +82,10 @@ Blockly.ThumbnailMutator.prototype.createEditor_ = function() {
     [Workspace]
   </svg>
   */
-  this.svgDialog_ = Blockly.createSvgElement('svg',
+  this.svgDialog_ = Blockly.utils.createSvgElement('svg',
       {'x': Blockly.Bubble.BORDER_WIDTH, 'y': Blockly.Bubble.BORDER_WIDTH},
       null);
-    
+
   var workspaceOptions = {
     languageTree: null,
     parentWorkspace: this.block_.workspace,
@@ -94,8 +95,9 @@ Blockly.ThumbnailMutator.prototype.createEditor_ = function() {
     setMetrics: null
   };
   this.workspace_ = new Blockly.WorkspaceSvg(workspaceOptions);
-    
-    this.popupElement_ = Blockly.createSvgElement('image',
+  this.workspace_.isMutator = true;
+
+    this.popupElement_ = Blockly.utils.createSvgElement('image',
       {'height': 200 + 'px',
        'width': 200 + 'px'},this.svgDialog_).setAttributeNS('http://www.w3.org/1999/xlink',
         'xlink:href', goog.isString(this.src_) ? this.src_ : '')
@@ -116,10 +118,10 @@ Blockly.ThumbnailMutator.prototype.setVisible = function(visible) {
     // Create the bubble.
     this.bubble_ = new Blockly.Bubble(this.block_.workspace,
         this.createEditor_(), this.block_.svgPath_,
-        this.iconX_, this.iconY_, null, null);
+        this.iconXY_, null, null);
       // Click on bubble to hid it
-      Blockly.bindEvent_(this.svgDialog_, 'mouseup', this, this.iconClick_);    
-      
+      Blockly.bindEvent_(this.svgDialog_, 'mouseup', this, this.iconClick_);
+
     var tree = this.workspace_.options.languageTree;
     if (tree) {
       this.workspace_.flyout_.init(this.workspace_);

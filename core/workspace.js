@@ -80,6 +80,12 @@ Blockly.Workspace = function(opt_options) {
    * that are not currently in use.
    */
   this.variableList = [];
+  /*
+   * @type {!Array.<string>}
+   * A list of all of the named templates in the workspace, including templates
+   * that are not currently in use.
+   */
+  this.templateList = [];
 };
 
 /**
@@ -127,6 +133,12 @@ Blockly.Workspace.prototype.addTopBlock = function(block) {
     for (var i = 0; i < variables.length; i++) {
       if (this.variableList.indexOf(variables[i]) == -1) {
         this.variableList.push(variables[i]);
+      }
+    }
+    var templates = Blockly.Templates.allUsedTemplates(block);
+    for (var i = 0; i < templates.length; i++) {
+      if (this.templateList.indexOf(templates[i]) == -1) {
+        this.templateList.push(templates[i]);
       }
     }
   }
@@ -193,6 +205,7 @@ Blockly.Workspace.prototype.clear = function() {
   }
 
   this.variableList.length = 0;
+  this.templateList.length = 0;
 };
 
 /**
@@ -206,10 +219,15 @@ Blockly.Workspace.prototype.updateVariableList = function(clearList) {
     // Update the list in place so that the flyout's references stay correct.
     if (clearList) {
       this.variableList.length = 0;
+      this.templateList.length = 0;
     }
     var allVariables = Blockly.Variables.allUsedVariables(this);
     for (var i = 0; i < allVariables.length; i++) {
       this.createVariable(allVariables[i]);
+    }
+    var allTemplates = Blockly.Templates.allUsedTemplates(this);
+    for (var i = 0; i < allTemplates.length; i++) {
+      this.createTemplate(allTemplates[i]);
     }
   }
 };
@@ -261,6 +279,52 @@ Blockly.Workspace.prototype.renameVariable = function(oldName, newName) {
 };
 
 /**
+ * Rename a template by updating its name in the template list.
+ * TODO: #468
+ * @param {string} oldName Template to rename.
+ * @param {string} newName New template name.
+ */
+Blockly.Workspace.prototype.renameTemplate = function(oldName, newName) {
+  // Find the old name in the list.
+  var templateIndex = this.templateIndexOf(oldName);
+  var newTemplateIndex = this.templateIndexOf(newName);
+
+  // We might be renaming to an existing name but with different case.  If so,
+  // we will also update all of the blocks using the new name to have the
+  // correct case.
+  if (newTemplateIndex != -1 &&
+      this.templateList[newTemplateIndex] != newName) {
+    var oldCase = this.templateList[newTemplateIndex];
+  }
+
+  Blockly.Events.setGroup(true);
+  var blocks = this.getAllBlocks();
+  // Iterate through every block.
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].renameTemplate(oldName, newName);
+    if (oldCase) {
+      blocks[i].renameTemplate(oldCase, newName);
+    }
+  }
+  Blockly.Events.setGroup(false);
+
+
+  if (templateIndex == newTemplateIndex ||
+      templateIndex != -1 && newTemplateIndex == -1) {
+    // Only changing case, or renaming to a completely novel name.
+    this.templateList[templateIndex] = newName;
+  } else if (templateIndex != -1 && newTemplateIndex != -1) {
+    // Renaming one existing template to another existing template.
+    // The case might have changed, so we update the destination ID.
+    this.templateList[newTemplateIndex] = newName;
+    this.templateList.splice(templateIndex, 1);
+  } else {
+    this.templateList.push(newName);
+    console.log('Tried to rename an non-existent template.');
+  }
+};
+
+/**
  * Create a variable with the given name.
  * TODO: #468
  * @param {string} name The new variable's name.
@@ -269,6 +333,18 @@ Blockly.Workspace.prototype.createVariable = function(name) {
   var index = this.variableIndexOf(name);
   if (index == -1) {
     this.variableList.push(name);
+  }
+};
+
+/**
+ * Create a tempalte with the given name.
+ * TODO: #468
+ * @param {string} name The new template's name.
+ */
+Blockly.Workspace.prototype.createTemplate = function(name) {
+  var index = this.templateIndexOf(name);
+  if (index == -1) {
+    this.templateList.push(name);
   }
 };
 
@@ -288,6 +364,30 @@ Blockly.Workspace.prototype.getVariableUses = function(name) {
         var varName = blockVariables[j];
         // Variable name may be null if the block is only half-built.
         if (varName && Blockly.Names.equals(varName, name)) {
+          uses.push(blocks[i]);
+        }
+      }
+    }
+  }
+  return uses;
+};
+
+/**
+ * Find all the uses of a named template.
+ * @param {string} name Name of template.
+ * @return {!Array.<!Blockly.Block>} Array of block usages.
+ */
+Blockly.Workspace.prototype.getTemplateUses = function(name) {
+  var uses = [];
+  var blocks = this.getAllBlocks();
+  // Iterate through every block and check the name.
+  for (var i = 0; i < blocks.length; i++) {
+    var blockTemplates = blocks[i].getTemplates();
+    if (blockTemplates) {
+      for (var j = 0; j < blockTemplates.length; j++) {
+        var templateName = blockTemplates[j];
+        // Template name may be null if the block is only half-built.
+        if (templateName && Blockly.Names.equals(templateName, name)) {
           uses.push(blocks[i]);
         }
       }
@@ -345,6 +445,54 @@ Blockly.Workspace.prototype.deleteVariable = function(name) {
 };
 
 /**
+ * Delete a templates and all of its uses from this workspace.
+ * @param {string} name Name of template to delete.
+ */
+Blockly.Workspace.prototype.deleteTemplate = function(name) {
+  var templateIndex = this.templateIndexOf(name);
+  if (templateIndex == -1) {
+    return;
+  }
+  // Check whether this template is a function parameter before deleting.
+  var uses = this.getTemplateUses(name);
+  for (var i = 0, block; block = uses[i]; i++) {
+    if (block.type == 'procedures_defnoreturn' ||
+      block.type == 'procedures_defreturn') {
+      var procedureName = block.getFieldValue('NAME');
+      Blockly.alert(
+          Blockly.Msg.CANNOT_DELETE_TEMPLATE_PROCEDURE.
+          replace('%1', name).
+          replace('%2', procedureName));
+      return;
+    }
+  }
+
+  var workspace = this;
+  function doDeletion() {
+    Blockly.Events.setGroup(true);
+    for (var i = 0; i < uses.length; i++) {
+      uses[i].dispose(true, false);
+    }
+    Blockly.Events.setGroup(false);
+    workspace.templateList.splice(templateIndex, 1);
+  }
+  if (uses.length > 1) {
+    // Confirm before deleting multiple blocks.
+    Blockly.confirm(
+        Blockly.Msg.DELETE_TEMPLATE_CONFIRMATION.replace('%1', uses.length).
+        replace('%2', name),
+        function(ok) {
+          if (ok) {
+            doDeletion();
+          }
+        });
+  } else {
+    // No confirmation necessary for a single block.
+    doDeletion();
+  }
+};
+
+/**
  * Check whether a variable exists with the given name.  The check is
  * case-insensitive.
  * @param {string} name The name to check for.
@@ -354,6 +502,22 @@ Blockly.Workspace.prototype.deleteVariable = function(name) {
 Blockly.Workspace.prototype.variableIndexOf = function(name) {
   for (var i = 0, varname; varname = this.variableList[i]; i++) {
     if (Blockly.Names.equals(varname, name)) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+/**
+ * Check whether a template exists with the given name.  The check is
+ * case-insensitive.
+ * @param {string} name The name to check for.
+ * @return {number} The index of the name in the template list, or -1 if it is
+ *     not present.
+ */
+Blockly.Workspace.prototype.templateIndexOf = function(name) {
+  for (var i = 0, templateName; templateName = this.templateList[i]; i++) {
+    if (Blockly.Names.equals(templateName, name)) {
       return i;
     }
   }

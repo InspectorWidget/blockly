@@ -27,7 +27,8 @@
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.templates');
+goog.provide('Blockly.Blocks.templates');  // Deprecated.
+goog.provide('Blockly.Constants.Templates');
 
 goog.require('Blockly.Blocks');
 //goog.require('Blockly.ThumbnailMutator');
@@ -35,8 +36,12 @@ goog.require('Blockly.Blocks');
 
 /**
  * Common HSV hue for all blocks in this category.
+ * Should be the same as Blockly.Msg.TEMPLATES_HUE.
+ * @readonly
  */
-Blockly.Blocks.templates.HUE = 280;
+Blockly.Constants.Templates.HUE = 280;
+/** @deprecated Use Blockly.Constants.Variables.HUE */
+Blockly.Blocks.templates.HUE = Blockly.Constants.Templates.HUE;
 
 /**
  * Ensure that only a nonnegative float with 2 digits of precision may be entered.
@@ -64,7 +69,7 @@ Blockly.FieldTextInput.nonnegativeFourDigitFloatValidator = function(text) {
     return parseFloat(n).toFixed(4);
 };
 
-Blockly.Blocks['template_get'] = {
+Blockly.Blocks['templates_get'] = {
   /**
    * Block for template getter.
    * @this Blockly.Block
@@ -100,7 +105,7 @@ Blockly.Blocks['template_get'] = {
       this.setFieldValue(newName, 'TEMPLATE');
     }
   },
-  contextMenuType_: 'template_set',
+  contextMenuType_: 'templates_set',
   /**
    * Add menu option to create getter/setter block for this setter/getter.
    * @param {!Array} options List of menu options to add to.
@@ -119,7 +124,7 @@ Blockly.Blocks['template_get'] = {
   }
 };
 
-Blockly.Blocks['template_set'] = {
+Blockly.Blocks['templates_set'] = {
     init: function() {
         this.jsonInit({
             "message0": '%1= template(%2,%3,%4,%5,%7,%6)',
@@ -164,7 +169,7 @@ Blockly.Blocks['template_set'] = {
             "helpUrl": "http://www.github.com/InspectorWidget/InspectorWidget",
             "inputsInline" : true,
         });
-       
+
         this.getField('X').setValidator(Blockly.FieldTextInput.nonnegativeFourDigitFloatValidator);
         this.getField('Y').setValidator(Blockly.FieldTextInput.nonnegativeFourDigitFloatValidator);
         this.getField('W').setValidator(Blockly.FieldTextInput.nonnegativeFourDigitFloatValidator);
@@ -174,7 +179,7 @@ Blockly.Blocks['template_set'] = {
         this.setNextStatement(true);*/ // otherwise these can be statements
         this.thumbnailMutator_ = new Blockly.ThumbnailMutator();
         this.setMutator(this.thumbnailMutator_);
-		this.setColour(Blockly.Blocks.templates.HUE);  
+		this.setColour(Blockly.Blocks.templates.HUE);
     },
 
     /**
@@ -183,10 +188,10 @@ Blockly.Blocks['template_set'] = {
    * @this Blockly.Block
    */
     getTemplates: function() {
-        return [this.getFieldValue('TEMPLATE')/*, 
-                this.getFieldValue('X'), 
-                this.getFieldValue('Y'), 
-                this.getFieldValue('W'), 
+        return [this.getFieldValue('TEMPLATE')/*,
+                this.getFieldValue('X'),
+                this.getFieldValue('Y'),
+                this.getFieldValue('W'),
                 this.getFieldValue('H'),
                 this.getFieldValue('VIDEO'),
                 this.getFieldValue('TIME')*/
@@ -204,8 +209,8 @@ Blockly.Blocks['template_set'] = {
             this.setFieldValue(newName, 'TEMPLATE');
         }
     },
-    contextMenuType_: 'template_get',
-    customContextMenu: Blockly.Blocks['template_get'].customContextMenu
+    contextMenuType_: 'templates_get',
+    customContextMenu: Blockly.Blocks['templates_get'].customContextMenu
 
 
 };

@@ -699,6 +699,22 @@ Blockly.Block.prototype.getVars = function() {
 };
 
 /**
+ * Return all templates referenced by this block.
+ * @return {!Array.<string>} List of template names.
+ */
+Blockly.Block.prototype.getTemplates = function() {
+  var templates = [];
+  for (var i = 0, input; input = this.inputList[i]; i++) {
+    for (var j = 0, field; field = input.fieldRow[j]; j++) {
+      if (field instanceof Blockly.FieldTemplate) {
+        templates.push(field.getValue());
+      }
+    }
+  }
+  return templates;
+};
+
+/**
  * Notification that a variable is renaming.
  * If the name matches one of this block's variables, rename it.
  * @param {string} oldName Previous name of variable.
@@ -708,6 +724,23 @@ Blockly.Block.prototype.renameVar = function(oldName, newName) {
   for (var i = 0, input; input = this.inputList[i]; i++) {
     for (var j = 0, field; field = input.fieldRow[j]; j++) {
       if (field instanceof Blockly.FieldVariable &&
+          Blockly.Names.equals(oldName, field.getValue())) {
+        field.setValue(newName);
+      }
+    }
+  }
+};
+
+/**
+ * Notification that a template is renaming.
+ * If the name matches one of this block's templates, rename it.
+ * @param {string} oldName Previous name of template.
+ * @param {string} newName Renamed template.
+ */
+Blockly.Block.prototype.renameTemplate = function(oldName, newName) {
+  for (var i = 0, input; input = this.inputList[i]; i++) {
+    for (var j = 0, field; field = input.fieldRow[j]; j++) {
+      if (field instanceof Blockly.FieldTemplate &&
           Blockly.Names.equals(oldName, field.getValue())) {
         field.setValue(newName);
       }
