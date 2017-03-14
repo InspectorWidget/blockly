@@ -63,6 +63,12 @@ Blockly.FieldVariable.prototype.renameVarItemIndex_ = -1;
  */
 Blockly.FieldVariable.prototype.deleteVarItemIndex_ = -1;
 
+/**
+ * The menu item index for the new variable option.
+ * @type {number}
+ * @private
+ */
+Blockly.FieldVariable.prototype.newVarItemIndex_ = -1;
 
 /**
  * Install this dropdown on a block.
@@ -147,6 +153,9 @@ Blockly.FieldVariable.dropdownCreate = function() {
 
   this.deleteVarItemIndex_ = variableList.length;
   variableList.push(Blockly.Msg.DELETE_VARIABLE.replace('%1', name));
+
+  this.newVarItemIndex_ = variableList.length;
+  variableList.push(Blockly.Msg.NEW_VARIABLE);
   // Variables are not language-specific, use the name as both the user-facing
   // text and the internal representation.
   var options = [];
@@ -180,6 +189,22 @@ Blockly.FieldVariable.prototype.onItemSelected = function(menu, menuItem) {
             }
           });
       return;
+    } else if (this.newVarItemIndex_ >= 0 &&
+        menu.getChildAt(this.newVarItemIndex_) === menuItem) {
+          var self = this;
+          Blockly.Variables.promptName(
+              Blockly.Msg.NEW_VARIABLE_TITLE, '',
+              function(newName) {
+                if (newName) {
+                  workspace.createVariable(newName)
+                  var newVarIndex = workspace.variableIndexOf(newName);
+                  if(newVarIndex != -1){
+                    self.setValue(newName);
+                  }
+                }
+                return;
+              });
+              return;
     } else if (this.deleteVarItemIndex_ >= 0 &&
         menu.getChildAt(this.deleteVarItemIndex_) === menuItem) {
       // Delete variable.
