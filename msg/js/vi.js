@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.vi');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Thêm Chú Giải";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Thay giá trị thành:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";  // untranslated
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "lặp lại cho đến khi";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "lặp lại trong khi";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Miễn là điều kiện còn sai, thì thực hiện các lệnh.  Khi điều kiện đúng thì ngưng.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Miễn là điều kiện còn đúng, thì thực hiện các lệnh.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Xóa hết %1 mảnh?";
 Blockly.Msg.DELETE_BLOCK = "Xóa Mảnh Này";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Hoàn trả Arctang của một góc (theo
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Hoàn trả Cos của một góc (theo độ).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Hoàn trả Sin của một góc (theo độ).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Hoàn trả Tang của một góc (theo độ).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Biến mới...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "các tham số";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Thêm, xóa hoặc sắp xếp lại các đầu vào cho hàm này.";
 Blockly.Msg.REDO = "Redo";  // untranslated
 Blockly.Msg.REMOVE_COMMENT = "Xóa Chú Giải";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Thay tên biến...";

@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.sq');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Vendos nje Koment";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Ndrysho Vlerat:";
 Blockly.Msg.CLEAN_UP = "Pastro blloqet";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "përsërit derisa";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "përsërit përderisa";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Përderisa një vlerë është e pasaktë, atëherë ekzekuto disa fjali.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Përderisa një vlerë është e saktë, atëherë ekzekuto disa fjali.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Fshijë të gjitha %1 të blloqeve?";
 Blockly.Msg.DELETE_BLOCK = "Fshij bllokun";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Kthe tg-1 e nje numeri.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Kthe kosinusin e nje grade (jo ne radiant).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Kthe kosinusin e nje kendi (jo ne radiant).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Kthe tangentin e nje kendi (jo radiant).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Krijo variabël...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "Informacioni i futur";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Add, remove, or reorder inputs to this function.";  // untranslated
 Blockly.Msg.REDO = "Ribëj";
 Blockly.Msg.REMOVE_COMMENT = "Fshij komentin";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Ndrysho emrin variables...";

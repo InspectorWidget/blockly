@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.et');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Lisa kommentaar";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Muuda väärtust:";
 Blockly.Msg.CLEAN_UP = "Korista plokid kokku";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "seni kuni pole";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "seni kuni on";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Plokis olevaid käske korratakse seni kui avaldis pole tõene.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Plokis olevaid käske korratakse seni kui avaldis on tõene.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Kas kustutada kõik %1 plokki?";
 Blockly.Msg.DELETE_BLOCK = "Kustuta plokk";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Tagastab arvu arkustangensi.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Tagastab arvu (kraadid) kosiinuse.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Tagastab arvu (kraadid) siinuse.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Tagastab arvu (kraadid) tangensi.";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Uus muutuja ...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "sisendid";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Funktsiooni sisendite lisamine, eemaldamine või järjestuse muutmine.";
 Blockly.Msg.REDO = "Tee uuesti";
 Blockly.Msg.REMOVE_COMMENT = "Eemalda kommentaar";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Nimeta muutuja ümber ...";

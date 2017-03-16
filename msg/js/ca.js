@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.ca');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Afegeix un comentari";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Canvia valor:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";  // untranslated
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "repetir fins que";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "repetir mentre";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Mentre un valor sigui fals, llavors executar unes sentències.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Mentre un valor sigui cert, llavors executar unes sentències.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Esborrar els %1 blocs?";
 Blockly.Msg.DELETE_BLOCK = "Esborra bloc";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Retorna l'arctangent d'un nombre.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Retorna el cosinus d'un grau (no radiant).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Retorna el sinus d'un grau (no radiant).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Retorna la tangent d'un grau (no radiant).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Nova variable...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "entrades";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Afegir, eliminar o canviar l'ordre de les entrades per aquesta funció.";
 Blockly.Msg.REDO = "Redo";  // untranslated
 Blockly.Msg.REMOVE_COMMENT = "Elimina el comentari";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Reanomena variable...";

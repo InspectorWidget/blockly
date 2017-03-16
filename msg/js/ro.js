@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.ro');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Adaugă un comentariu";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Schimbaţi valoarea:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";  // untranslated
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "Repetaţi până când";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "repetă în timp ce";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "În timp ce o valoare este adevărat, atunci face unele declaraţii.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "În timp ce o valoare este adevărat, atunci face unele declaraţii.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Ștergi toate cele %1 (de) blocuri?";
 Blockly.Msg.DELETE_BLOCK = "Șterge Bloc";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Returnează arctangenta unui număr.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Întoarce cosinusul unui grad (nu radianul).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Întoarce cosinusul unui grad (nu radianul).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Întoarce tangenta unui grad (nu radianul).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Variabilă nouă...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "intrări";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Adăugă, șterge sau reordonează parametrii de intrare ai acestei funcții.";
 Blockly.Msg.REDO = "Redo";  // untranslated
 Blockly.Msg.REMOVE_COMMENT = "Elimină comentariu";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Redenumirea variabilei...";

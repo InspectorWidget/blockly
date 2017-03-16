@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.be.tarask');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Дадаць камэнтар";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Зьмяніць значэньне:";
 Blockly.Msg.CLEAN_UP = "Ачысьціць блёкі";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "паўтараць, пакул
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "паўтараць, пакуль";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Пакуль значэньне хлусьня, выконваць пэўныя апэрацыі.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Пакуль значэньне ісьціна, выконваць пэўныя апэрацыі.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Выдаліць усе блёкі %1?";
 Blockly.Msg.DELETE_BLOCK = "Выдаліць блёк";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Вяртае арктангэнс ліку
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Вяртае косынус кута ў градусах.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Вяртае сынус кута ў градусах.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Вяртае тангэнс кута ў градусах.";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Стварыць зьменную…";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "парамэтры";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Дадаць, выдаліць ці запісаць чаргу ўваходных парамэтраў для гэтай функцыі.";
 Blockly.Msg.REDO = "Паўтарыць";
 Blockly.Msg.REMOVE_COMMENT = "Выдаліць камэнтар";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Перайменаваць зьменную…";

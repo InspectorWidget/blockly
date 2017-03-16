@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.nl');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Reactie toevoegen";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Waarde wijzigen:";
 Blockly.Msg.CLEAN_UP = "Blokken opschonen";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "herhalen totdat";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "herhalen zolang";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Terwijl een waarde onwaar is de volgende opdrachten uitvoeren.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Terwijl een waarde waar is de volgende opdrachten uitvoeren.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Alle %1 blokken verwijderen?";
 Blockly.Msg.DELETE_BLOCK = "Blok verwijderen";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Geeft de arctangens van een getal.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Geeft de cosinus van een graad (geen radialen).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Geeft de sinus van een graad (geen radialen).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Geeft de tangens van een graad (geen radialen).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Variabele maken...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "ingangen";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Invoer van deze functie toevoegen, verwijderen of herordenen.";
 Blockly.Msg.REDO = "Opnieuw";
 Blockly.Msg.REMOVE_COMMENT = "Opmerking verwijderen";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Variabele hernoemen...";

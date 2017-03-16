@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.zh.hans');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "添加注释";
 Blockly.Msg.CHANGE_VALUE_TITLE = "更改值：";
 Blockly.Msg.CLEAN_UP = "整理块";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "重复直到";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "重复当";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "只要值为假，执行一些语句。";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "只要值为真，执行一些语句。";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "删除所有%1块吗？";
 Blockly.Msg.DELETE_BLOCK = "删除块";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "返回指定角度的反正切值。";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "返回指定角度的余弦值(非弧度）。";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "返回指定角度的正弦值(非弧度）。";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "返回指定角度的正切值(非弧度）。";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "创建变量...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "输入";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "添加、删除或重新排此函数的输入。";
 Blockly.Msg.REDO = "重做";
 Blockly.Msg.REMOVE_COMMENT = "删除注释";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "重命名变量...";

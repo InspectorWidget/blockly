@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.th');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "ใส่คำอธิบาย";
 Blockly.Msg.CHANGE_VALUE_TITLE = "เปลี่ยนค่า:";
 Blockly.Msg.CLEAN_UP = "จัดเรียงบล็อกให้เป็นแถว";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "ทำซ้ำจนกระ
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "ทำซ้ำขณะที่";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "ขณะที่ค่าเป็นเท็จ ก็จะทำบางคำสั่ง";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "ขณะที่ค่าเป็นจริง ก็จะทำบางคำสั่ง";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "ลบ %1 บล็อกทั้งหมด?";
 Blockly.Msg.DELETE_BLOCK = "ลบบล็อก";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "คืนค่า arctangent ของต
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "คืนค่า cosine ขององศา (ไม่ใช่เรเดียน)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "คืนค่า sine ขององศา (ไม่ใช่เรเดียน)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "คืนค่า tangent ขององศา (ไม่ใช่เรเดียน)";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "สร้างตัวแปร...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "นำเข้า";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "เพิ่ม, ลบ, หรือจัดเรียง ข้อมูลที่ป้อนเข้าฟังก์ชันนี้";
 Blockly.Msg.REDO = "ทำซ้ำ";
 Blockly.Msg.REMOVE_COMMENT = "เอาคำอธิบายออก";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "เปลี่ยนชื่อตัวแปร...";

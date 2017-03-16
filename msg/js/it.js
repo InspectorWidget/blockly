@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.it');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Aggiungi commento";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Modifica valore:";
 Blockly.Msg.CLEAN_UP = "Pulisci i blocchi";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "ripeti fino a che";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "ripeti mentre";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Finché un valore è falso, esegue alcune istruzioni.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Finché un valore è vero, esegue alcune istruzioni.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Cancellare tutti i %1 blocchi?";
 Blockly.Msg.DELETE_BLOCK = "Cancella blocco";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Restituisce l'arco-tangente di un numero."
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Restituisce il coseno di un angolo espresso in gradi (non radianti).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Restituisce il seno di un angolo espresso in gradi (non radianti).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Restituisce la tangente di un angolo espresso in gradi (non radianti).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Crea variabile...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "input";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Aggiungi, rimuovi o riordina input alla funzione.";
 Blockly.Msg.REDO = "Ripeti";
 Blockly.Msg.REMOVE_COMMENT = "Rimuovi commento";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Rinomina variabile...";

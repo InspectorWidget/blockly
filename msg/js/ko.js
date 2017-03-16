@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.ko');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "댓글 추가";
 Blockly.Msg.CHANGE_VALUE_TITLE = "값 바꾸기:";
 Blockly.Msg.CLEAN_UP = "블록 정리";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "다음까지 반복";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "동안 반복";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "값이 거짓일 때, 몇 가지 선언을 합니다.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "값이 참일 때, 몇 가지 선언을 합니다.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "모든 블록 %1개를 삭제하겠습니까?";
 Blockly.Msg.DELETE_BLOCK = "블록 삭제";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "어떤 수에 대한, atan(arctangent) 값
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "각도의 코사인을 반환합니다. (라디안 아님)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "각도의 사인을 반환합니다. (라디안 아님)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "각도의 탄젠트를 반환합니다. (라디안 아님)";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "변수 만들기...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "매개 변수들";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "이 함수를 추가, 삭제, 혹은 재정렬합니다.";
 Blockly.Msg.REDO = "다시 실행";
 Blockly.Msg.REMOVE_COMMENT = "내용 제거";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "변수 이름 바꾸기:";

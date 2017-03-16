@@ -1,5 +1,56 @@
 'use strict';
 goog.provide('Blockly.Blocks.InspectorWidget.Accessibility');
+Blockly.Blocks.InspectorWidget.Accessibility.HUE = 210;
+/**
+ * Block for accessibility matching.
+ * @this Blockly.Block
+ */
+Blockly.Blocks['match_accessible'] = {
+    init: function () {
+        this.jsonInit({
+            "message0": 'matchAccessible(%1)'
+            , "args0": [
+                {
+                    "type": "field_accessible"
+                    , "name": "ACCESSIBLE"
+                    , "accessible": 'accessible'
+                }
+            ]
+            , "tooltip": "Match accessible over the video(s)."
+            , "helpUrl": "http://www.github.com/InspectorWidget/InspectorWidget"
+            , "inputsInline": true
+            , "previousStatement": null
+            , "nextStatement": null
+        , });
+        this.setColour(Blockly.Blocks.InspectorWidget.Accessibility.HUE);
+    }
+    , /**
+     * Return all accessibles referenced by this block.
+     * @return {!Array.<string>} List of template names.
+     * @this Blockly.Block
+     */
+    getAccessibles: function () {
+        return [this.getFieldValue('ACCESSIBLE')];
+    }
+    , /**
+     * Notification that an accessible is renaming.
+     * If the name matches one of this block's accessibles, rename it.
+     * @param {string} oldName Previous name of accessible.
+     * @param {string} newName Renamed accessible.
+     * @this Blockly.Block
+     */
+    renameAccessible: function (oldName, newName) {
+        if (Blockly.Names.equals(oldName, this.getFieldValue('ACCESSIBLE'))) {
+            this.setFieldValue(newName, 'ACCESSIBLE');
+        }
+    }
+    , /*contextMenuType_: 'accessibles_get',
+           customContextMenu: Blockly.Blocks['accessibles_get'].customContextMenu*/
+};
+/**
+ * Block for accessibility extraction.
+ * @this Blockly.Block
+ */
 var ACCESSIBILITY_ACTIONS = [
         ["getFocusApplication", 'getFocusApplication']
         , ["getFocusWindow", 'getFocusWindow']
@@ -12,7 +63,6 @@ var ACCESSIBILITY_TOOLTIPS = {
     , 'getPointedWidget': "get pointed widget"
     , 'getWorkspaceSnapshot': "get workspace snapshot"
 , };
-Blockly.Blocks.InspectorWidget.Accessibility.HUE = 210;
 Blockly.Blocks['accessibility_actions'] = {
     /**
      * Block for text extraction.
@@ -85,7 +135,7 @@ Blockly.Blocks['accessibility_actions'] = {
         }
         if (test === 'getFocusApplication' || test === 'getFocusWindow' || test === 'getPointedWidget' || test === 'getWorkspaceSnapshot') {
             // add input for 1 variable
-            this.appendDummyInput('TEST_VALUE').appendField(new Blockly.FieldVariable('variable'), 'VAR').appendField(new Blockly.FieldLabel(' = '));
+            this.appendDummyInput('TEST_VALUE').appendField(new Blockly.FieldAccessible('accessible'), 'ACCESSIBLE').appendField(new Blockly.FieldLabel(' = '));
             this.moveInputBefore('TEST_VALUE', 'ACTION');
             this.appendDummyInput('PARENTHESES').appendField(new Blockly.FieldLabel('()'));
         }
@@ -99,8 +149,8 @@ Blockly.Blocks['accessibility_actions'] = {
      * @return {!Array.<string>} List of variable names.
      * @this Blockly.Block
      */
-    getVars: function () {
-        return [this.getFieldValue('VAR')];
+    getAccessibles: function () {
+        return [this.getFieldValue('ACCESSIBLE')];
     }
     , /**
      * Notification that a variable is renaming.
@@ -109,9 +159,9 @@ Blockly.Blocks['accessibility_actions'] = {
      * @param {string} newName Renamed variable.
      * @this Blockly.Block
      */
-    renameVar: function (oldName, newName) {
-        if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-            this.setFieldValue(newName, 'VAR');
+    renameAccessible: function (oldName, newName) {
+        if (Blockly.Names.equals(oldName, this.getFieldValue('ACCESSIBLE'))) {
+            this.setFieldValue(newName, 'ACCESSIBLE');
         }
     }
 };

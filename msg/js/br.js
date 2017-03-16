@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.br');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Ouzhpennañ un evezhiadenn";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Kemmañ an dalvoudenn :";
 Blockly.Msg.CLEAN_UP = "Naetaat ar bloc'hoù";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "adober betek";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "adober keit ha ma";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Keit ha ma vez faos un dalvoudenn,seveniñ urzhioù zo neuze.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Keit ha ma vez gwir un dalvoudenn, seveniñ urzhioù zo neuze.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Diverkañ an holl vloc'hoù %1 ?";
 Blockly.Msg.DELETE_BLOCK = "Dilemel ar bloc'h";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Distreiñ ark tangent un niver";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Distreiñ kosinuz ur c'horn (ket e radianoù)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Distreiñ sinuz ur c'horn (ket e radianoù)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Distreiñ tangent ur c'horn (ket e radianoù).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Krouiñ un argemm nevez...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "Monedoù";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Ouzhpennañ, lemel, pe adkempenn monedoù an arc'hwel-mañ.";
 Blockly.Msg.REDO = "Adober";
 Blockly.Msg.REMOVE_COMMENT = "Lemel an evezhiadenn kuit";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Adenvel an argemmenn...";

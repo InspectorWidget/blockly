@@ -1,6 +1,10 @@
 'use strict';
 goog.provide('Blockly.Blocks.InspectorWidget.ComputerVision');
 Blockly.Blocks.InspectorWidget.ComputerVision.HUE = 280;
+/**
+ * Block for template matching.
+ * @this Blockly.Block
+ */
 Blockly.Blocks['match_template'] = {
     init: function () {
         this.jsonInit({
@@ -44,7 +48,7 @@ Blockly.Blocks['match_template'] = {
            customContextMenu: Blockly.Blocks['templates_get'].customContextMenu*/
 };
 /**
- * Block for template extraction.
+ * Block for template extraction tests.
  * @this Blockly.Block
  */
 var EXTRACT_TESTS = [

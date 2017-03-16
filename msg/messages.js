@@ -70,6 +70,7 @@ Blockly.Msg.PROCEDURES_HUE = '290';
 /// [[Translating:Blockly#infrequent_message_types]].\n{{Identical|Item}}
 Blockly.Msg.VARIABLES_DEFAULT_NAME = 'item';
 Blockly.Msg.TEMPLATES_DEFAULT_NAME = 'template';
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = 'accessible';
 /// button text - Button that sets a calendar to today's date.\n{{Identical|Today}}
 Blockly.Msg.TODAY = 'Today';
 
@@ -156,6 +157,29 @@ Blockly.Msg.DELETE_TEMPLATE_CONFIRMATION = 'Delete %1 uses of the "%2" template?
 Blockly.Msg.CANNOT_DELETE_TEMPLATE_PROCEDURE = 'Can\'t delete the template "%1" because it is part of the definition of the procedure "%2"';
 /// dropdown choice - Delete the currently selected template.
 Blockly.Msg.DELETE_TEMPLATE = 'Delete the "%1" template';
+
+// Accessible renaming.
+/// dropdown choice - When the user clicks on a accessible block, this is one of the dropdown menu choices.  It is used to rename the current accessible.
+Blockly.Msg.RENAME_ACCESSIBLE = 'Rename accessible...';
+/// prompt - Prompts the user to enter the new name for the selected accessible.
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = 'Rename all "%1" accessibles to:';
+
+// Accessible creation
+/// button text - Text on the button used to launch the accessible creation dialogue.
+Blockly.Msg.NEW_ACCESSIBLE = 'Create accessible...';
+/// prompt - Prompts the user to enter the name for a new accessible.
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = 'New accessible name:';
+/// alert - Tells the user that the name they entered is already in use.
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = 'A accessible named "%1" already exists.'
+
+// Accessible deletion.
+/// confirm -  Ask the user to confirm their deletion of multiple uses of a accessible.
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = 'Delete %1 uses of the "%2" accessible?';
+/// alert - Tell the user that they can't delete a accessible because it's part of the definition of a procedure.
+Blockly.Msg.CANNOT_DELETE_ACCESSIBLE_PROCEDURE = 'Can\'t delete the accessible "%1" because it is part of the definition of the procedure "%2"';
+/// dropdown choice - Delete the currently selected accessible.
+Blockly.Msg.DELETE_ACCESSIBLE = 'Delete the "%1" accessible';
+
 
 // Colour Blocks.
 /// url - Information about colour.
@@ -1112,6 +1136,25 @@ Blockly.Msg.TEMPLATES_SET_TOOLTIP = 'Sets this template to be equal to the input
 /// context menu - Selecting this creates a block to get (change) the value of
 /// this template.\n\nParameters:\n* %1 - the name of the template.
 Blockly.Msg.TEMPLATES_SET_CREATE_GET = 'Create "get %1"';
+
+// Accessibles Blocks.
+/// url - Information about ''accessibles'' in computer programming.
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = 'https://github.com/InspectorWidget/blockly/';
+/// tooltip - This gets the value of the named accessible without modifying it.
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = 'Returns the value of this accessible.';
+/// context menu - Selecting this creates a block to set (change) the value of this accessible.
+/// \n\nParameters:\n* %1 - the name of the accessible.
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = 'Create "set %1"';
+
+/// url - Information about ''accessibles'' in computer programming.
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = 'https://github.com/InspectorWidget/blockly/';
+/// block text - Change the value of a mathematical accessible: '''set [the value of] x to 7'''.\n\nParameters:\n* %1 - the name of the accessible.\n* %2 - the value to be assigned.
+Blockly.Msg.ACCESSIBLES_SET = 'set %1 to %2';
+/// tooltip - This initializes or changes the value of the named accessible.
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = 'Sets this accessible to be equal to the input.';
+/// context menu - Selecting this creates a block to get (change) the value of
+/// this accessible.\n\nParameters:\n* %1 - the name of the accessible.
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = 'Create "get %1"';
 
 // Procedures Blocks.
 /// url - Information about defining [https://en.wikipedia.org/wiki/Subroutine functions] that do not have return values.

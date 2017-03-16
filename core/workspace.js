@@ -86,6 +86,12 @@ Blockly.Workspace = function(opt_options) {
    * that are not currently in use.
    */
   this.templateList = [];
+ /*
+  * @type {!Array.<string>}
+  * A list of all of the named accessibles in the workspace, including accessibles
+  * that are not currently in use.
+  */
+ this.accessibleList = [];
 };
 
 /**
@@ -133,6 +139,12 @@ Blockly.Workspace.prototype.addTopBlock = function(block) {
     for (var i = 0; i < variables.length; i++) {
       if (this.variableList.indexOf(variables[i]) == -1) {
         this.variableList.push(variables[i]);
+      }
+    }
+    var accessibles = Blockly.Accessibles.allUsedAccessibles(block);
+    for (var i = 0; i < accessibles.length; i++) {
+      if (this.accessibleList.indexOf(accessibles[i]) == -1) {
+        this.accessibleList.push(accessibles[i]);
       }
     }
     var templates = Blockly.Templates.allUsedTemplates(block);
@@ -224,6 +236,10 @@ Blockly.Workspace.prototype.updateVariableList = function(clearList) {
     var allVariables = Blockly.Variables.allUsedVariables(this);
     for (var i = 0; i < allVariables.length; i++) {
       this.createVariable(allVariables[i]);
+    }
+    var allAccessibles = Blockly.Accessibles.allUsedAccessibles(this);
+    for (var i = 0; i < allAccessibles.length; i++) {
+      this.createAccessible(allAccessibles[i]);
     }
     var allTemplates = Blockly.Templates.allUsedTemplates(this);
     for (var i = 0; i < allTemplates.length; i++) {
@@ -518,6 +534,153 @@ Blockly.Workspace.prototype.variableIndexOf = function(name) {
 Blockly.Workspace.prototype.templateIndexOf = function(name) {
   for (var i = 0, templateName; templateName = this.templateList[i]; i++) {
     if (Blockly.Names.equals(templateName, name)) {
+      return i;
+    }
+  }
+  return -1;
+};
+
+/**
+ * Rename a accessible by updating its name in the accessible list.
+ * TODO: #468
+ * @param {string} oldName Accessible to rename.
+ * @param {string} newName New accessible name.
+ */
+Blockly.Workspace.prototype.renameAccessible = function(oldName, newName) {
+  // Find the old name in the list.
+  var accessibleIndex = this.accessibleIndexOf(oldName);
+  var newAccessibleIndex = this.accessibleIndexOf(newName);
+
+  // We might be renaming to an existing name but with different case.  If so,
+  // we will also update all of the blocks using the new name to have the
+  // correct case.
+  if (newAccessibleIndex != -1 &&
+      this.accessibleList[newAccessibleIndex] != newName) {
+    var oldCase = this.accessibleList[newAccessibleIndex];
+  }
+
+  Blockly.Events.setGroup(true);
+  var blocks = this.getAllBlocks();
+  // Iterate through every block.
+  for (var i = 0; i < blocks.length; i++) {
+    blocks[i].renameAccessible(oldName, newName);
+    if (oldCase) {
+      blocks[i].renameAccessible(oldCase, newName);
+    }
+  }
+  Blockly.Events.setGroup(false);
+
+
+  if (accessibleIndex == newAccessibleIndex ||
+      accessibleIndex != -1 && newAccessibleIndex == -1) {
+    // Only changing case, or renaming to a completely novel name.
+    this.accessibleList[accessibleIndex] = newName;
+  } else if (accessibleIndex != -1 && newAccessibleIndex != -1) {
+    // Renaming one existing accessible to another existing accessible.
+    // The case might have changed, so we update the destination ID.
+    this.accessibleList[newAccessibleIndex] = newName;
+    this.accessibleList.splice(accessibleIndex, 1);
+  } else {
+    this.accessibleList.push(newName);
+    console.log('Tried to rename an non-existent accessible.');
+  }
+};
+
+/**
+ * Create a accessible with the given name.
+ * TODO: #468
+ * @param {string} name The new accessible's name.
+ */
+Blockly.Workspace.prototype.createAccessible = function(name) {
+  var index = this.accessibleIndexOf(name);
+  if (index == -1) {
+    this.accessibleList.push(name);
+  }
+};
+
+/**
+ * Find all the uses of a named accessible.
+ * @param {string} name Name of accessible.
+ * @return {!Array.<!Blockly.Block>} Array of block usages.
+ */
+Blockly.Workspace.prototype.getAccessibleUses = function(name) {
+  var uses = [];
+  var blocks = this.getAllBlocks();
+  // Iterate through every block and check the name.
+  for (var i = 0; i < blocks.length; i++) {
+    var blockAccessibles = blocks[i].getAccessibles();
+    if (blockAccessibles) {
+      for (var j = 0; j < blockAccessibles.length; j++) {
+        var accessibleName = blockAccessibles[j];
+        // Accessible name may be null if the block is only half-built.
+        if (accessibleName && Blockly.Names.equals(accessibleName, name)) {
+          uses.push(blocks[i]);
+        }
+      }
+    }
+  }
+  return uses;
+};
+
+/**
+ * Delete a accessibles and all of its uses from this workspace.
+ * @param {string} name Name of accessible to delete.
+ */
+Blockly.Workspace.prototype.deleteAccessible = function(name) {
+  var accessibleIndex = this.accessibleIndexOf(name);
+  if (accessibleIndex == -1) {
+    return;
+  }
+  // Check whether this accessible is a function parameter before deleting.
+  var uses = this.getAccessibleUses(name);
+  for (var i = 0, block; block = uses[i]; i++) {
+    if (block.type == 'procedures_defnoreturn' ||
+      block.type == 'procedures_defreturn') {
+      var procedureName = block.getFieldValue('NAME');
+      Blockly.alert(
+          Blockly.Msg.CANNOT_DELETE_ACCESSIBLE_PROCEDURE.
+          replace('%1', name).
+          replace('%2', procedureName));
+      return;
+    }
+  }
+
+  var workspace = this;
+  function doDeletion() {
+    Blockly.Events.setGroup(true);
+    for (var i = 0; i < uses.length; i++) {
+      uses[i].dispose(true, false);
+    }
+    Blockly.Events.setGroup(false);
+    workspace.accessibleList.splice(accessibleIndex, 1);
+  }
+  if (uses.length > 1) {
+    // Confirm before deleting multiple blocks.
+    Blockly.confirm(
+        Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION.replace('%1', uses.length).
+        replace('%2', name),
+        function(ok) {
+          if (ok) {
+            doDeletion();
+          }
+        });
+  } else {
+    // No confirmation necessary for a single block.
+    doDeletion();
+  }
+};
+
+
+/**
+ * Check whether a accessible exists with the given name.  The check is
+ * case-insensitive.
+ * @param {string} name The name to check for.
+ * @return {number} The index of the name in the accessible list, or -1 if it is
+ *     not present.
+ */
+Blockly.Workspace.prototype.accessibleIndexOf = function(name) {
+  for (var i = 0, accessibleName; accessibleName = this.accessibleList[i]; i++) {
+    if (Blockly.Names.equals(accessibleName, name)) {
       return i;
     }
   }

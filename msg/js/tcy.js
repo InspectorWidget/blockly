@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.tcy');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "ಟಿಪ್ಪಣಿ ಸೇರ್ಸಲೆ";
 Blockly.Msg.CHANGE_VALUE_TITLE = "ಮೌಲ್ಯೊದ ಬದಲಾವಣೆ";
 Blockly.Msg.CLEAN_UP = "ನಿರ್ಬಂದೊಲೆನ್ ಸ್ವೊಚ್ಚೊ ಮಲ್ಪುಲೆ";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "ಬುಕ್ಕೊ ಮುಟ�
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "ಬುಕ್ಕೊ ಅಂಚನೇ";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "ಈ ತಿರ್ತ್‍ದ ತಪ್ಪಾದುಂಡು, ಬುಕ್ಕೊದ ಕೆಲವು ಹೇಳಿಕೆಲೆನ್ ಮಲ್ಪಪುಲ";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "ಈ ತಿರ್ತ್‌ದ ಸರಿ ಇತ್ತ್ಂಡಲಾ, ಬುಕ್ಕೊದ ಕೆಲವು ಹೇಳಿಕೆಲೆನ್ ಮಲ್ಪುಲ";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "ಮಾತ %1 ನಿರ್ಬಂದೊಲೆನ್ ದೆತ್ತ್ ಪಾಡ್ಲೆ ?";
 Blockly.Msg.DELETE_BLOCK = "ಮಾಜಯರ ತಡೆಯಾತ್ಂಡ್";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "ಸಂಖ್ಯೆದ ಆರ್ಕ್ಟ�
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "ಪದವಿದ ಸಹ ಚಿಹ್ನೆನ್ ಪಿರಕೊರು";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "ಪದವಿದ ಚಿಹ್ನೆನ್ ಪಿರಕೊರು";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "ಪದವಿದ ಸ್ಪರ್ಶಕೊನು ಪಿರಕೊರು";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "ಪೊಸ ಬದಲಾವಣೆ";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "ಉಲಪರಿಪು";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "ಸೇರಯರ, ದೆತ್ತ್‌ ಪಾಡೆರೆ ಅತ್ತಂಡ ಪಿರಕೋರಿಕೆದ ಉಲಪರಿಪುದ ಕಾರ್ಯೊನು ಮಲ್ಪುಲೆ.";
 Blockly.Msg.REDO = "ಪಿರವುದಂಚ";
 Blockly.Msg.REMOVE_COMMENT = "ಟಿಪ್ಪಣಿನ್ ದೆತ್ತ್‌ಪಾಡ್ಲೆ";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "ಬದಲಾವಣೆ ಆಯಿನ ಪುದರ್‍ನ್ ನಾನೊರೊ ಪನ್ಲೆ";

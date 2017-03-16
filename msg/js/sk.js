@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.sk');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Pridať komentár";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Zmeniť hodnotu:";
 Blockly.Msg.CLEAN_UP = "Narovnať bloky";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "opakuj kým nebude";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "opakuj kým";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Kým je hodnota nepravdivá, vykonávaj príkazy.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Kým je hodnota pravdivá, vykonávaj príkazy.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Zmazať všetkých %1 dielcov?";
 Blockly.Msg.DELETE_BLOCK = "Odstrániť blok";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Vráť arkus tangens čísla.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Vráť kosínus uhla (v stupňoch).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Vráť sínus uhla (v stupňoch).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Vráť tangens uhla (v stupňoch).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Vytvoriť premennú...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "vstupy";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Pridať, odstrániť alebo zmeniť poradie vstupov tejto funkcie.";
 Blockly.Msg.REDO = "Znova";
 Blockly.Msg.REMOVE_COMMENT = "Odstrániť komentár";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Premenovať premennú...";

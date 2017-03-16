@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.de');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Kommentar hinzufügen";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Wert ändern:";
 Blockly.Msg.CLEAN_UP = "Bausteine aufräumen";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "wiederhole bis";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "wiederhole solange";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Führt Anweisungen aus solange die Bedingung unwahr ist.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Führt Anweisungen aus solange die Bedingung wahr ist.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Alle %1 Bausteine löschen?";
 Blockly.Msg.DELETE_BLOCK = "Baustein löschen";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Ist der Arkustangens des Eingabewertes.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Ist der Kosinus des Winkels.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Ist der Sinus des Winkels.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Ist der Tangens des Winkels.";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Variable erstellen …";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "Parameter";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Die Eingaben zu dieser Funktion hinzufügen, entfernen oder neu anordnen.";
 Blockly.Msg.REDO = "Wiederholen";
 Blockly.Msg.REMOVE_COMMENT = "Kommentar entfernen";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Variable umbenennen …";

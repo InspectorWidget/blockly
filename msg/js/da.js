@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.da');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Tilføj kommentar";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Skift værdi:";
 Blockly.Msg.CLEAN_UP = "Ryd op i blokke";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "gentag indtil";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "gentag sålænge";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Udfør nogle kommandoer, sålænge en værdi er falsk.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Udfør nogle kommandoer, sålænge en værdi er sand.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Slet alle %1 blokke?";
 Blockly.Msg.DELETE_BLOCK = "Slet blok";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Returnere arcus tangens af et tal.";
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Returnere cosinus af en vinkel (i grader).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Returnere sinus af en vinkel (i grader).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Returnere tangens af en vinkel (i grader).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Ny variabel...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "parametre";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Tilføje, fjerne eller ændre rækkefølgen af parametre til denne funktion.";
 Blockly.Msg.REDO = "Redo";  // untranslated
 Blockly.Msg.REMOVE_COMMENT = "Fjern kommentar";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Omdøb variabel...";

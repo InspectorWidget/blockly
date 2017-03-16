@@ -24,6 +24,13 @@ Blockly.JavaScript.init = function(workspace) {
         Blockly.JavaScript.variableDB_.reset();
     }
     
+    if (!Blockly.JavaScript.accessibleDB_) {
+        Blockly.JavaScript.accessibleDB_ =
+            new Blockly.Names(Blockly.JavaScript.RESERVED_WORDS_);
+    } else {
+        Blockly.JavaScript.accessibleDB_.reset();
+    }
+	
     if (!Blockly.JavaScript.templateDB_) {
         Blockly.JavaScript.templateDB_ =
             new Blockly.Names(Blockly.JavaScript.RESERVED_WORDS_);

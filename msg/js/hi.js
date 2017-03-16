@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.hi');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "टिप्पणी छोड़ें";
 Blockly.Msg.CHANGE_VALUE_TITLE = "मान परिवर्तित करें:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";  // untranslated
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "दोहराएँ जब �
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "दोहराएँ जब कि";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "जब तक मान फॉल्स है, तब तक कुछ स्टेट्मेंट्स चलाएँ।";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "जब तक मान ट्रू है, तब तक कुछ स्टेट्मेंट्स चलाएँ।";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Delete all %1 blocks?";  // untranslated
 Blockly.Msg.DELETE_BLOCK = "ब्लॉक हटाएँ";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "संख्या का आर्कट�
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "डिग्री का कोसाइन रिटर्न करें (रेडियन नही)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "डिग्री का साइन रिटर्न करें (रेडियन नही)";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "डिग्री का टैन्जन्ट रिटर्न करें (रेडियन नही)";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "चर बनाएँ...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "इनपुट";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Add, remove, or reorder inputs to this function.";  // untranslated
 Blockly.Msg.REDO = "फिर से करें";
 Blockly.Msg.REMOVE_COMMENT = "टिप्पणी हटायें";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "चर का नाम बदलें...";

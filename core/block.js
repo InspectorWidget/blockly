@@ -699,6 +699,22 @@ Blockly.Block.prototype.getVars = function() {
 };
 
 /**
+ * Return all accessibles referenced by this block.
+ * @return {!Array.<string>} List of template names.
+ */
+Blockly.Block.prototype.getAccessibles = function() {
+  var accessibles = [];
+  for (var i = 0, input; input = this.inputList[i]; i++) {
+    for (var j = 0, field; field = input.fieldRow[j]; j++) {
+      if (field instanceof Blockly.FieldAccessible) {
+        accessibles.push(field.getValue());
+      }
+    }
+  }
+  return accessibles;
+};
+
+/**
  * Return all templates referenced by this block.
  * @return {!Array.<string>} List of template names.
  */
@@ -724,6 +740,23 @@ Blockly.Block.prototype.renameVar = function(oldName, newName) {
   for (var i = 0, input; input = this.inputList[i]; i++) {
     for (var j = 0, field; field = input.fieldRow[j]; j++) {
       if (field instanceof Blockly.FieldVariable &&
+          Blockly.Names.equals(oldName, field.getValue())) {
+        field.setValue(newName);
+      }
+    }
+  }
+};
+
+/**
+ * Notification that an accessible is renaming.
+ * If the name matches one of this block's templates, rename it.
+ * @param {string} oldName Previous name of template.
+ * @param {string} newName Renamed template.
+ */
+Blockly.Block.prototype.renameAccessible = function(oldName, newName) {
+  for (var i = 0, input; input = this.inputList[i]; i++) {
+    for (var j = 0, field; field = input.fieldRow[j]; j++) {
+      if (field instanceof Blockly.FieldAccessible &&
           Blockly.Names.equals(oldName, field.getValue())) {
         field.setValue(newName);
       }
@@ -1208,6 +1241,9 @@ Blockly.Block.prototype.interpolate_ = function(message, args, lastDummyAlign) {
             case 'field_variable':
               field = Blockly.Block.newFieldVariableFromJson_(element);
               break;
+            case 'field_accessible':
+              field = new Blockly.FieldAccessible(element['accessible']);
+              break;  
             case 'field_template':
               field = new Blockly.FieldTemplate(element['template']);
               break;

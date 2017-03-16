@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.el');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Πρόσθεσε Το Σχόλιο";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Άλλαξε την τιμή:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";  // untranslated
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "επανάλαβε μέχρι"
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "επανάλαβε ενώ";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Ενόσω μια τιμή είναι ψευδής, τότε εκτελεί κάποιες εντολές.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Ενόσω μια τιμή είναι αληθής, τότε εκτελεί κάποιες εντολές.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Να διαγραφούν και τα %1 μπλοκ?";
 Blockly.Msg.DELETE_BLOCK = "Διέγραψε Το Μπλοκ";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Επιστρέφει το τόξο εφα�
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Επιστρέφει το συνημίτονο ενός βαθμού (όχι ακτινίου).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Επιστρέφει το ημίτονο ενός βαθμού (όχι ακτινίου).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Επιστρέφει την εφαπτομένη ενός βαθμού (όχι ακτινίου).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Νέα μεταβλητή...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "είσοδοι";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Προσθέτει, αφαιρεί ή αναδιατάσσει εισόδους σε αυτήν τη λειτουργία";
 Blockly.Msg.REDO = "Ακύρωση αναίρεσης";
 Blockly.Msg.REMOVE_COMMENT = "Αφαίρεσε Το Σχόλιο";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Μετονόμασε τη μεταβλητή...";

@@ -6,6 +6,15 @@ goog.provide('Blockly.Msg.tr');
 
 goog.require('Blockly.Msg');
 
+Blockly.Msg.ACCESSIBLES_DEFAULT_NAME = "accessible";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_CREATE_SET = "Create 'set %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_GET_TOOLTIP = "Returns the value of this accessible.";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET = "set %1 to %2";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_CREATE_GET = "Create 'get %1'";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_HELPURL = "https://github.com/InspectorWidget/blockly/";  // untranslated
+Blockly.Msg.ACCESSIBLES_SET_TOOLTIP = "Sets this accessible to be equal to the input.";  // untranslated
+Blockly.Msg.ACCESSIBLE_ALREADY_EXISTS = "A accessible named '%1' already exists.";  // untranslated
 Blockly.Msg.ADD_COMMENT = "Yorum Ekle";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Değeri değiştir:";
 Blockly.Msg.CLEAN_UP = "Blokları temizle";
@@ -60,6 +69,8 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "kadar tekrarla";
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "tekrar ederken";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "Bir değer yanlış olduğunda bazı beyanlarda bulun.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "Bir değer doğru olduğunda bazı beyanlarda bulun.";
+Blockly.Msg.DELETE_ACCESSIBLE = "Delete the '%1' accessible";  // untranslated
+Blockly.Msg.DELETE_ACCESSIBLE_CONFIRMATION = "Delete %1 uses of the '%2' accessible?";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "Tüm %1 blok silinsin mi?";
 Blockly.Msg.DELETE_BLOCK = "Bloğu Sil";
 Blockly.Msg.DELETE_TEMPLATE = "Delete the '%1' template";  // untranslated
@@ -269,6 +280,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = "Bir sayının ters tanjantını döndür .
 Blockly.Msg.MATH_TRIG_TOOLTIP_COS = "Bir açının kosinüsünü döndür(radyan olarak değil).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_SIN = "Bir açının sinüsünü döndür(radyan olarak değil).";
 Blockly.Msg.MATH_TRIG_TOOLTIP_TAN = "Bir açının tanjantını döndür(radyan olarak değil).";
+Blockly.Msg.NEW_ACCESSIBLE = "Create accessible...";  // untranslated
+Blockly.Msg.NEW_ACCESSIBLE_TITLE = "New accessible name:";  // untranslated
 Blockly.Msg.NEW_TEMPLATE = "Create template...";  // untranslated
 Blockly.Msg.NEW_TEMPLATE_TITLE = "New template name:";  // untranslated
 Blockly.Msg.NEW_VARIABLE = "Değişken oluştur...";
@@ -302,6 +315,8 @@ Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE = "girdiler";
 Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP = "Bu işlevin girdilerini ekleyin, çıkarın, ya da yeniden sıralayın.";
 Blockly.Msg.REDO = "Yinele";
 Blockly.Msg.REMOVE_COMMENT = "Yorumu Sil";
+Blockly.Msg.RENAME_ACCESSIBLE = "Rename accessible...";  // untranslated
+Blockly.Msg.RENAME_ACCESSIBLE_TITLE = "Rename all '%1' accessibles to:";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE = "Rename template...";  // untranslated
 Blockly.Msg.RENAME_TEMPLATE_TITLE = "Rename all '%1' templates to:";  // untranslated
 Blockly.Msg.RENAME_VARIABLE = "Değişkeni yeniden adlandır...";

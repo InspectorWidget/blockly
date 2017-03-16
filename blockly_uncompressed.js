@@ -38,11 +38,12 @@ window.BLOCKLY_BOOT = function() {
     }
     dir = window.BLOCKLY_DIR.match(/[^\/]+$/)[0];
   }
+goog.addDependency("../../../" + dir + "/core/accessibles.js", ['Blockly.Accessibles'], ['Blockly.Blocks', 'Blockly.constants', 'Blockly.Workspace', 'goog.string']);
 goog.addDependency("../../../" + dir + "/core/block.js", ['Blockly.Block'], ['Blockly.Blocks', 'Blockly.Comment', 'Blockly.Connection', 'Blockly.Extensions', 'Blockly.Input', 'Blockly.Mutator', 'Blockly.ThumbnailMutator', 'Blockly.Warning', 'Blockly.Workspace', 'Blockly.Xml', 'goog.array', 'goog.asserts', 'goog.math.Coordinate', 'goog.string']);
 goog.addDependency("../../../" + dir + "/core/block_drag_surface.js", ['Blockly.BlockDragSurfaceSvg'], ['Blockly.utils', 'goog.asserts', 'goog.math.Coordinate']);
 goog.addDependency("../../../" + dir + "/core/block_render_svg.js", ['Blockly.BlockSvg.render'], ['Blockly.BlockSvg', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/block_svg.js", ['Blockly.BlockSvg'], ['Blockly.Block', 'Blockly.ContextMenu', 'Blockly.Touch', 'Blockly.RenderedConnection', 'goog.Timer', 'goog.asserts', 'goog.dom', 'goog.math.Coordinate', 'goog.userAgent']);
-goog.addDependency("../../../" + dir + "/core/blockly.js", ['Blockly'], ['Blockly.BlockSvg.render', 'Blockly.Events', 'Blockly.FieldAngle', 'Blockly.FieldCheckbox', 'Blockly.FieldColour', 'Blockly.FieldDropdown', 'Blockly.FieldImage', 'Blockly.FieldTextInput', 'Blockly.FieldTemplate', 'Blockly.FieldNumber', 'Blockly.FieldVariable', 'Blockly.Generator', 'Blockly.Msg', 'Blockly.Procedures', 'Blockly.Toolbox', 'Blockly.Touch', 'Blockly.WidgetDiv', 'Blockly.WorkspaceSvg', 'Blockly.constants', 'Blockly.inject', 'Blockly.utils', 'goog.color', 'goog.userAgent']);
+goog.addDependency("../../../" + dir + "/core/blockly.js", ['Blockly'], ['Blockly.BlockSvg.render', 'Blockly.Events', 'Blockly.FieldAngle', 'Blockly.FieldCheckbox', 'Blockly.FieldColour', 'Blockly.FieldDropdown', 'Blockly.FieldImage', 'Blockly.FieldTextInput', 'Blockly.FieldAccessible', 'Blockly.FieldTemplate', 'Blockly.FieldNumber', 'Blockly.FieldVariable', 'Blockly.Generator', 'Blockly.Msg', 'Blockly.Procedures', 'Blockly.Toolbox', 'Blockly.Touch', 'Blockly.WidgetDiv', 'Blockly.WorkspaceSvg', 'Blockly.constants', 'Blockly.inject', 'Blockly.utils', 'goog.color', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/blocks.js", ['Blockly.Blocks'], []);
 goog.addDependency("../../../" + dir + "/core/bubble.js", ['Blockly.Bubble'], ['Blockly.Touch', 'Blockly.Workspace', 'goog.dom', 'goog.math', 'goog.math.Coordinate', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/comment.js", ['Blockly.Comment'], ['Blockly.Bubble', 'Blockly.Icon', 'goog.userAgent']);
@@ -54,6 +55,7 @@ goog.addDependency("../../../" + dir + "/core/css.js", ['Blockly.Css'], []);
 goog.addDependency("../../../" + dir + "/core/events.js", ['Blockly.Events'], ['goog.array', 'goog.math.Coordinate']);
 goog.addDependency("../../../" + dir + "/core/extensions.js", ['Blockly.Extensions'], []);
 goog.addDependency("../../../" + dir + "/core/field.js", ['Blockly.Field'], ['goog.asserts', 'goog.dom', 'goog.math.Size', 'goog.style', 'goog.userAgent']);
+goog.addDependency("../../../" + dir + "/core/field_accessible.js", ['Blockly.FieldAccessible'], ['Blockly.FieldDropdown', 'Blockly.Msg', 'Blockly.Accessibles', 'goog.asserts', 'goog.string']);
 goog.addDependency("../../../" + dir + "/core/field_angle.js", ['Blockly.FieldAngle'], ['Blockly.FieldTextInput', 'goog.math', 'goog.userAgent']);
 goog.addDependency("../../../" + dir + "/core/field_checkbox.js", ['Blockly.FieldCheckbox'], ['Blockly.Field']);
 goog.addDependency("../../../" + dir + "/core/field_colour.js", ['Blockly.FieldColour'], ['Blockly.Field', 'goog.dom', 'goog.events', 'goog.style', 'goog.ui.ColorPicker']);
@@ -1662,6 +1664,7 @@ goog.addDependency("../../third_party/closure/goog/svgpan/svgpan.js", ['svgpan.S
 
 // Load Blockly.
 goog.require('Blockly');
+goog.require('Blockly.Accessibles');
 goog.require('Blockly.Block');
 goog.require('Blockly.BlockDragSurfaceSvg');
 goog.require('Blockly.BlockSvg');
@@ -1676,6 +1679,7 @@ goog.require('Blockly.Css');
 goog.require('Blockly.Events');
 goog.require('Blockly.Extensions');
 goog.require('Blockly.Field');
+goog.require('Blockly.FieldAccessible');
 goog.require('Blockly.FieldAngle');
 goog.require('Blockly.FieldCheckbox');
 goog.require('Blockly.FieldColour');
