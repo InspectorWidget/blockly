@@ -15,7 +15,7 @@ Blockly.JavaScript['accessibility_actions'] = function (block) {
     var test = block.getFieldValue('MODE');
     var name = '';
     // Replace by function finding name in ACCESSIBILITY_ACTIONS
-    if (test === 'getFocusApplication' || test === 'getFocusWindow' || test === 'getPointedWidget' || test === 'getWorkspaceSnapshot') {
+    if (test === 'getFocusApplication' || test === 'getFocusWindow' || test === 'getPointedWidget' || test === 'trackApplicationSnapshot') {
         name = test;
         argument1 = block.getFieldValue('ACCESSIBLE');
     }

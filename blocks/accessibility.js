@@ -55,13 +55,13 @@ var ACCESSIBILITY_ACTIONS = [
         ["getFocusApplication", 'getFocusApplication']
         , ["getFocusWindow", 'getFocusWindow']
         , ["getPointedWidget", 'getPointedWidget']
-        , ["getWorkspaceSnapshot", 'getWorkspaceSnapshot']
+        , ["trackApplicationSnapshot", 'trackApplicationSnapshot']
     , ];
 var ACCESSIBILITY_TOOLTIPS = {
     'getFocusApplication': "get application in focus"
     , 'getFocusWindow': "get window in focus"
     , 'getPointedWidget': "get pointed widget"
-    , 'getWorkspaceSnapshot': "get workspace snapshot"
+    , 'trackApplicationSnapshot': "track application snapshot"
 , };
 Blockly.Blocks['accessibility_actions'] = {
     /**
@@ -133,7 +133,7 @@ Blockly.Blocks['accessibility_actions'] = {
         if (parenthesesExists) {
             this.removeInput('PARENTHESES');
         }
-        if (test === 'getFocusApplication' || test === 'getFocusWindow' || test === 'getPointedWidget' || test === 'getWorkspaceSnapshot') {
+        if (test === 'getFocusApplication' || test === 'getFocusWindow' || test === 'getPointedWidget' || test === 'trackApplicationSnapshot') {
             // add input for 1 variable
             this.appendDummyInput('TEST_VALUE').appendField(new Blockly.FieldAccessible('accessible'), 'ACCESSIBLE').appendField(new Blockly.FieldLabel(' = '));
             this.moveInputBefore('TEST_VALUE', 'ACTION');
